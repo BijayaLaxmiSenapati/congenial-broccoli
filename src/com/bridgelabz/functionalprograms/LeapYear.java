@@ -20,9 +20,7 @@ import com.bridgelabz.utility.Utility;
 public class LeapYear 
 {
 
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) 
 	{
 		System.out.println("enter a year");

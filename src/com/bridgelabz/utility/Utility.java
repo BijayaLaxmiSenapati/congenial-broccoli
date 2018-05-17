@@ -1,6 +1,8 @@
 package com.bridgelabz.utility;
 
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Utility 
 {
@@ -177,5 +179,67 @@ public class Utility
 		
 		System.out.println("percentage of head is "+percentHead);
 		System.out.println("percentage of head is "+percentTail);
+	}
+	
+	
+	/*
+	 * function to return all prime factors of a given number
+	 */
+	public static Set printPrimeFactors()
+	{
+		int n=Utility.retInt();
+		Set s=new HashSet();
+		while(n%2==0)
+		{
+			s.add(2);
+			n=n/2;
+		}
+		for(int i=3;i<=Math.sqrt(n);i=i+2)
+		{
+			if(n%i==0)
+			{
+				s.add(i);
+				n=n/i;
+			}
+		}
+		if(n>2)
+		{
+			s.add(n);
+		}
+		return s;
+	}
+	
+	
+	/*
+	 * function to calculate the number of times a player wins and looses in gambling
+	 */
+	public static void calWinLossInGambling(int stake,int goal,int chance)
+	{
+		int win=0,loss=0;
+		
+		for(int i=1;i<chance;i++)
+		{
+			while(stake<goal && stake>0 && chance>0)
+			{
+				if(Math.random()>=0.5)
+				{
+					stake++;
+					win++;
+					chance--;
+				}
+				else 
+				{
+					stake--;
+					loss++;
+					chance--;
+				}
+			}
+		}
+		double percentWin=(win*100)/(win+loss);
+		double percentLoss=(loss*100)/(win+loss);
+		System.out.println("the player won "+win+" times.");
+		System.out.println("the player lost "+loss+" times.");
+		System.out.println("percentage of win is "+percentWin+"%");
+		System.out.println("percentage of loss is "+percentLoss+"%");
 	}
 }
