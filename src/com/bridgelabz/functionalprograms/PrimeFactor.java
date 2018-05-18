@@ -18,7 +18,8 @@ public class PrimeFactor
 	public static void main(String[] args) 
 	{
 		System.out.println("enter a number whose prime factors you want to print");
-		System.out.println(Utility.printPrimeFactors());
+		int n = Utility.retInt();
+		System.out.println(Utility.printPrimeFactors(n));
 	}
 
 }

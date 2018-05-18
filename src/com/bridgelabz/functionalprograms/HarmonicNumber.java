@@ -18,7 +18,9 @@ public class HarmonicNumber
 	public static void main(String[] args) 
 	{
 		System.out.println("enter a number");
-		Utility.printNthHarmonic();
+		int n = Utility.retInt();
+		Utility.printNthHarmonic(n);
+		System.out.println("the " + n + "th" + " harmonic number is " + Utility.printNthHarmonic(n));
 	}
 
 }
