@@ -37,7 +37,7 @@ public class TicTacToe
 		l1=random.nextInt(3);
 		l2=random.nextInt(3);
 		box[l1][l2]='X';
-		while(checkForWin(box) || count!=8)
+		while(!checkForWin(box) || count!=8)
 		{
 			//it prints the contents of the box before asking input from the user
 			for(int i=0;i<3;i++)
