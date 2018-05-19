@@ -104,7 +104,6 @@ public class Utility {
 	 */
 
 	public static String checkLeapYear(int year) {
-		int count = 0;
 		if (year >= 1000 && year <= 9999) {
 			if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
 
@@ -144,8 +143,8 @@ public class Utility {
 	 * function to calculate percentage of head and tail after flipping a coin
 	 */
 
-	public static void PercentOfHeadTail() {
-		int n = scr.nextInt();
+	public static void PercentOfHeadTail(int numberOfTimes) {
+		
 		double tail = 0;
 		double head = 0;/*
 		 * if you will declare tail and head as integer then there will be a problem in
@@ -153,7 +152,7 @@ public class Utility {
 		 * (5*100)/10=50
 		 */
 		double percentHead, percentTail;
-		for (int i = 1; i < n; i++) {
+		for (int i = 1; i < numberOfTimes; i++) {
 			if (Math.random() < 0.5) {
 				tail++;
 			} else {
@@ -161,8 +160,8 @@ public class Utility {
 			}
 		}
 
-		percentHead = (head / n) * 100;
-		percentTail = (tail / n) * 100;
+		percentHead = (head / numberOfTimes) * 100;
+		percentTail = (tail / numberOfTimes) * 100;
 
 		System.out.println("percentage of head is " + percentHead);
 		System.out.println("percentage of head is " + percentTail);
@@ -315,6 +314,7 @@ public class Utility {
 				}
 				System.out.println();
 			}
+			break;
 		default:
 			System.out.println("you have given one invalid input");
 		}
@@ -343,5 +343,75 @@ public class Utility {
 			}
 		}
 
+	}
+
+	/**
+	 * @param firstPoint
+	 * @param secondPoint
+	 */
+	public static double calEuclideanDistance(int firstPoint, int secondPoint) {
+		double ans=Math.sqrt(Math.pow(firstPoint,2)*Math.pow(secondPoint, 2));
+		return ans;
+		
+	}
+
+	/**
+	 * @param firstConstant
+	 * @param secondConstant
+	 * @param lastConstant
+	 */
+	public static double[] calRootsOfQuadraticEquation(int firstConstant, int secondConstant, int lastConstant) {
+		double[] rootArray=new double[2];
+		int delta=secondConstant*secondConstant-(4*firstConstant-lastConstant);
+		double root1=0;
+		double root2=0;
+		double real=0;
+		double imaginary=0;
+		System.out.println("delta="+delta);
+		if(delta<0)
+		{
+			real=(-secondConstant/(2*firstConstant));
+			imaginary=Math.sqrt((-delta)/(2*firstConstant));
+			root1=real+(2*imaginary);
+			root2=real-(2*imaginary);
+		}
+		else if(delta>0)
+		{
+			real=(-secondConstant/(2*firstConstant));
+			imaginary=Math.sqrt((delta)/(2*firstConstant));
+			root1=real+(2*imaginary);
+			root2=real-(2*imaginary);
+		}
+		else if(delta==0)
+		{
+			root1=root2=(-secondConstant/(2*firstConstant));
+		}
+		rootArray[0]=root1;
+		rootArray[1]=root2;
+		return rootArray;
+		
+	}
+
+	/**
+	 * @param tempratureInfahrenheit
+	 * @param windSpeedInMilesPerHour
+	 * @return
+	 */
+	public static double defineWeather(double tempratureInfahrenheit, double windSpeedInMilesPerHour) {
+		if(tempratureInfahrenheit<50 && ( windSpeedInMilesPerHour<120 ||windSpeedInMilesPerHour>3))
+		{
+			double weather=35.75 + (0.6215 * tempratureInfahrenheit) + ((0.4275*tempratureInfahrenheit) - 35.75)*Math.pow(windSpeedInMilesPerHour, 0.16);
+			return weather;
+		}
+		else
+			return 0.0;
+		
+	}
+	
+	
+	public static int randomWithRange(int max,int min)
+	{
+		int range=(max-min)+1;
+		return (int)(Math.random()*range)+min;
 	}
 }
