@@ -11,53 +11,76 @@ public class Utility {
 
 	static Scanner scr = new Scanner(System.in);
 
-	/*
-	 * function to return a Integer value which is given by user.
-	 */
-
-	public static int retInt() {
+	
+	
+	/**********************************************************************
+	 * @return number a user given number
+	 *********************************************************************/
+	public static int retInt() {         //function to return a Integer value which is given by user.
 		return scr.nextInt();
 	}
 
-	/*
-	 * function to return a word of String value which is given by user.
+	
+	/**
+	 * @return String a user given word
 	 */
-	public static String retNext() {
+	public static String retNext() {      //function to return a word of String value which is given by user.
 		return scr.next();
 	}
 
-	/*
-	 * function to return a String line which is given by user.
-	 */
-	public static String retNextLine() {
+	
+	/************************************************************************
+	 * @return String a user given sentence/multiple words
+	 *********************************************************************/
+	public static String retNextLine() {       //function to return a String line which is given by user.
 		return scr.nextLine();
 	}
 
 
 
-	/**
-	 * @return
-	 */
+	/***********************************************************************
+	 * @return boolean a user given boolen value
+	 **********************************************************************/
 	public static boolean retBoolean() {
 		return scr.nextBoolean();
 	}
 
 
-	/**
-	 * @return
-	 */
+	/*******************************************************************
+	 * @return number a number which is of double type and is given by the user
+	 *******************************************************************/
 	public static double retDouble() {
 		return scr.nextDouble();
+	}
+	
+	
+
+	/******************************************************************************
+	 * Function to create the array of user's choice
+	 * 
+	 * @param noOfElements to store the array length to be created
+	 * @param array to store the elements in the array
+	 * @return the integer array created
+	 ******************************************************************************/
+	public static int[] createIntegerArray() {
+		System.out.println("Enter the number of elements you want to store:-");
+		int noOfElements = Utility.retInt();
+		System.out.println("Enter the elements to be stored:-");
+		int[] array = new int[noOfElements];
+		for(int i=0; i<noOfElements; i++) {
+			array[i] = Utility.retInt();
+		}
+		return array;
 	}
 
 
 
-	/**
+	/*****************************************************************************
 	 * function to replace a proper username given by user with <<UserName>> from
 	 * the template String
-	 * @param String 
-	 * @return String
-	 */
+	 * @param String template from which <<User Name>> should be replaced with actual/proper username
+	 * @return String uname which is a proper name, given by the user
+	 *********************************************************************/
 
 	public static String replaceUsrName(String template,String uname) {
 		
@@ -81,14 +104,12 @@ public class Utility {
 
 	}
 
-	/**
-	 * function to print the power of 2 upto the given range of power
-	 * 
-	 * @param args
-	 *            takes the number upto which power of 2,the program should print
-	 */
+	
 
-	public static void printPowOf2(int n) {
+	/**
+	 * @param n number to print all the power value of 2 upto 'n'th power of 2
+	 */
+	public static void printPowOf2(int n) {         //function to print the power of 2 upto the given range of power
 		if (n >= 0 && n < 31) {
 			for (int i = 0; i <= n; i++) {
 				System.out.println("2^" + i + "=" + (int) Math.pow(2, i));
@@ -97,13 +118,12 @@ public class Utility {
 			System.out.println("You have entered a number which is out of the range");
 		}
 	}
-	/*
-	 * function to check a year is leap year or not
-	 * @param 
+	
+	/*******************************************************************
+	 * @param year year to check for leap year
 	 * @return String message for Leap year or not
-	 */
-
-	public static String checkLeapYear(int year) {
+	 *********************************************************************/
+	public static String checkLeapYear(int year) {        //function to check a year is leap year or not
 		if (year >= 1000 && year <= 9999) {
 			if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
 
@@ -117,10 +137,12 @@ public class Utility {
 		}
 	}
 
-	/*
-	 * function to print Nth harmonic number, i.e 1/1 + 1/2 + .... + 1/N
-	 */
-	public static double printNthHarmonic(int n) {
+	
+	/*********************************************************************
+	 * @param n number upto which harmonic number should be calculated
+	 * @return double which is the n'th harmonic number
+	 *********************************************************************/
+	public static double printNthHarmonic(int n) {         //function to print Nth harmonic number, i.e 1/1 + 1/2 + .... + 1/N
 		
 		double nthHarmonicNumber = 0;
 		if (n < 0) {
@@ -139,11 +161,12 @@ public class Utility {
 
 	}
 
-	/*
-	 * function to calculate percentage of head and tail after flipping a coin
-	 */
+	
 
-	public static void PercentOfHeadTail(int numberOfTimes) {
+	/**********************************************************************
+	 * @param numberOfTimes a number upto which a coin should be flipped
+	 **********************************************************************/
+	public static void PercentOfHeadTail(int numberOfTimes) {         //function to calculate percentage of head and tail after flipping a coin
 		
 		double tail = 0;
 		double head = 0;/*
@@ -167,10 +190,12 @@ public class Utility {
 		System.out.println("percentage of head is " + percentTail);
 	}
 
-	/*
-	 * function to return all prime factors of a given number
-	 */
-	public static Set printPrimeFactors(int n) {
+	
+	/***********************************************************************
+	 * @param n a number of which all the prime factors is printed
+	 * @return
+	 ************************************************************************/
+	public static Set printPrimeFactors(int n) {         //function to return all prime factors of a given number
 		Set s = new HashSet();
 		while (n % 2 == 0) 
 		{
@@ -190,11 +215,13 @@ public class Utility {
 		return s;
 	}
 
-	/*
-	 * function to calculate the number of times a player wins and looses in
-	 * gambling
-	 */
-	public static void calWinLossInGambling(int stake, int goal, int chance) {
+	
+	/*******************************************************************
+	 * @param stake number that a player have
+	 * @param goal number, the player have to make to win
+	 * @param chance number of times the player is allowed to play
+	 ******************************************************************/
+	public static void calWinLossInGambling(int stake, int goal, int chance) {       //function to calculate the number of times a player wins and looses in gambling
 		int win = 0, loss = 0;
 
 		for (int i = 1; i < chance; i++) {
@@ -222,6 +249,7 @@ public class Utility {
 	}
 
 	/**
+	 * @param n
 	 * @return
 	 */
 	public static int generateCoupNum(int n) 
@@ -323,7 +351,7 @@ public class Utility {
 
 
 	/**
-	 * @param arr
+	 * @param arr an array of type integer which has all the user given integers 
 	 */
 	public static void combineToGetZero(int[] arr)
 	{
@@ -409,9 +437,165 @@ public class Utility {
 	}
 	
 	
+	/**
+	 * @param max
+	 * @param min
+	 * @return
+	 */
 	public static int randomWithRange(int max,int min)
 	{
 		int range=(max-min)+1;
 		return (int)(Math.random()*range)+min;
 	}
+
+
+	/**
+	 * @param string whose spaces will be removed
+	 * @return String returns a string without space 
+	 */
+	public static String removeSapce(String string) 
+	{
+		String temprary="";
+		for(int i=0;i<string.length();i++)
+		{
+			if(string.charAt(i)!=' ')
+			{
+				temprary=temprary+string.charAt(i);
+			}
+			
+		}
+		return temprary;
+	}
+
+
+	
+	/**
+	 * @param array
+	 * @return
+	 */
+	public static int[] intBubbleSort(int[] array)
+	{
+		
+		for(int i=0;i<array.length-1;i++)
+		{
+			for(int j=i+1;j<array.length;j++)
+			{
+				if(array[i]>array[j])
+				{
+					int temprary=array[i];
+					array[i]=array[j];
+					array[j]=temprary;
+				}
+			}
+		}
+		for(int i=0;i<array.length;i++)
+		{
+			System.out.println(array[i]);
+		}
+		return array;
+	}
+
+
+	/**
+	 * @param number
+	 * @return
+	 */
+	public static boolean isPrime(int number) 
+	{
+		if(number<2)
+		{
+			return false;
+		}
+		for(int i=2;i<number/2;i++)
+		{
+			if((number%i)==0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+	/**
+	 * @param i
+	 * @return
+	 */
+	public static boolean isPallindrome(int number) 
+	{
+		int copyNumber=number;
+		int reverseNumber=0;
+		while(copyNumber>0)
+		{
+			reverseNumber=reverseNumber*10+(copyNumber%10);
+			copyNumber=copyNumber/10;
+		}
+		if(reverseNumber==number)
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+	/**
+	 * @param number1
+	 * @param number2
+	 * @return
+	 */
+	public static boolean NumAnagramCheck(int number1, int number2) 
+	{
+		String tempNumber1=number1+"";
+		String tempNumber2=number2+"";
+		if(Utility.stringBubbleSortByLetter(tempNumber1).equals(Utility.stringBubbleSortByLetter(tempNumber2)))
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	
+	/**
+	 * @param array
+	 * @param search
+	 * @return
+	 */
+	
+	
+	public static <T extends Comparable<T>> T maxOfThree(T x,T y,T z)
+	{
+		if(x.compareTo(y)>0 && x.compareTo(z)>0)
+		{
+			return x;
+		}
+		else if(y.compareTo(x)>0 && y.compareTo(z)>0)
+		{
+			return y;
+		}
+		else
+			return z;
+		
+	}
+	
+	
+	public static String stringBubbleSortByLetter(String string) 
+	{
+		char[] array=string.toCharArray();
+		char temporary=' ';
+		for(int i=0;i<string.length()-1;i++)
+		{
+			for(int j=0;j<string.length()-1-i;j++)
+			{
+				if(array[j]>array[j+1])
+				{
+					temporary=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temporary;
+				}
+			}
+		}
+		string=new String(array);
+		return string;
+	}
+	
 }

@@ -1,5 +1,8 @@
 /**
- * 
+ * purpose: allows a user and the system to play a cross game/Tic-Tac-Toe game
+ * @author:Bijaya Laxmi
+ * @version:1.0
+ * @since:18/05.2018
  */
 package com.bridgelabz.functionalprograms;
 
@@ -55,7 +58,7 @@ public class TicTacToe
 			if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box) && count!=8))
 			{
 				box[l1][l2]='o';
-				for(int i=0;i<3;i++)
+				for(int i=0;i<3;i++)       //prints the 2D array or board
 				{
 					for(int j=0;j<3;j++)
 					{
@@ -76,7 +79,7 @@ public class TicTacToe
 			if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box) && count!=8))
 			{
 				box[l1][l2]='X';
-				for(int i=0;i<3;i++)
+				for(int i=0;i<3;i++)        //prints the 2D array or board
 				{
 					for(int j=0;j<3;j++)
 					{
@@ -95,7 +98,7 @@ public class TicTacToe
 					if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box) && count!=8))
 					{
 						box[l1][l2]='X';
-						for(int i=0;i<3;i++)
+						for(int i=0;i<3;i++)         //prints the 2D array or board
 						{
 							for(int j=0;j<3;j++)
 							{
@@ -121,21 +124,22 @@ public class TicTacToe
 		{
 			System.out.println("lost");
 		}
-		/*for(int i=0;i<3;i++)
-		{
-			for(int j=0;j<3;j++)
-			{
-				System.out.print(box[i][j]);
-			}
-			System.out.println();
-		}*/
+		
 	}
 
+	/**Function to check whether any row element or column element or giagonal elements of the board/2D array same or not.
+	 * @param box/2D array the array to check whether a line element of that array is same or not
+	 * @return true if a line of the given array has same elements else false
+	 */
 	private static boolean checkForWin(char box[][]) 
 	{
 		return (checkRowWin(box) || checkColWin(box) || checkDiagonalWin(box));
 	}
 
+	/**
+	 * @param box/2D array to check whether the elements of any diagonal is same or not
+	 * @return true if elements of any diagonal is equal else false
+	 */
 	private static boolean checkDiagonalWin(char box[][]) 
 	{
 		if(checkEqual(box[0][0], box[1][1], box[2][2]) || checkEqual(box[2][0], box[1][1], box[0][1]))
@@ -145,6 +149,10 @@ public class TicTacToe
 		return false;
 	}
 
+	/**
+	 * @param box/2D array to check whether the elements of any column is equal or not
+	 * @return true if elements of any column is equal else false
+	 */
 	private static boolean checkColWin(char box[][]) 
 	{
 		char c1;
@@ -163,6 +171,10 @@ public class TicTacToe
 		return false;
 	}
 
+	/**
+	 * @param box/2D array to check whether the elements of any row is equal or not
+	 * @return true if elements of any row is equal else false
+	 */
 	private static boolean checkRowWin(char box[][]) 
 	{
 		char c1;
@@ -181,6 +193,12 @@ public class TicTacToe
 		return false;
 	}
 
+	/**
+	 * @param c1 a charecter which is the first element of a row/column/diagonal of the 2D array
+	 * @param c2 a charecter which is the second element of a row/column/diagonal of the 2D array
+	 * @param c3 a charecter which is the third element of a row/column/diagonal of the 2D array
+	 * @return
+	 */
 	private static boolean checkEqual(char c1, char c2, char c3) 
 	{
 		

@@ -1,5 +1,8 @@
 /**
- * 
+ * purpose: a stopwatch program for measuring the time that elapses between the start and end clicks
+ * @author:Bijaya Laxmi
+ * @version:1.0
+ * @since:18/05/2018
  */
 package com.bridgelabz.functionalprograms;
 
