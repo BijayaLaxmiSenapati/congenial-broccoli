@@ -8,6 +8,7 @@ import com.bridgelabz.utility.Utility;
 
 public class PermutationOfString 
 {
+	static int count=0;
 	public static void main(String[] args)
 	{
 		System.out.println("Enter the string: ");
@@ -24,9 +25,11 @@ public class PermutationOfString
 
 	private static void permuteString(String permute, String inputString) 
 	{
+		
 		if (inputString.length() == 0) 
 		{
 			System.out.println(permute);
+			count++;
 		} 
 		else 
 		{
@@ -35,6 +38,7 @@ public class PermutationOfString
 				permuteString(permute + inputString.charAt(i),inputString.substring(0, i) + inputString.substring(i + 1, inputString.length()));
 			}
         }
+		//abcdSystem.out.println("total number of strings= "+count);
     }
 }
 

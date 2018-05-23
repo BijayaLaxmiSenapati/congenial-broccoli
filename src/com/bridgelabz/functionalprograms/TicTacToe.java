@@ -10,16 +10,9 @@ import java.util.Random;
 
 import com.bridgelabz.utility.Utility;
 
-/**
- * @author adminstrato
- *
- */
 public class TicTacToe
 {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) 
 	{
 		Random random=new Random();

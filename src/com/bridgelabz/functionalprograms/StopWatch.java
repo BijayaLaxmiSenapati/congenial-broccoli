@@ -34,12 +34,12 @@ public class StopWatch {
 				flag=1;
 			}
 		}
-		long elapsedTime=stopTime-startTime;
+		double elapsedTime=(stopTime-startTime)/Math.pow(10, 9);
 		System.out.println("startTime= "+startTime);
 		System.out.println("stopTime= "+stopTime);
 		if(startTime!=0)
 		{
-			System.out.println("elapsedTime= "+elapsedTime);
+			System.out.println("elapsedTime= "+elapsedTime+" seconds");
 		}
 		else
 			System.out.println("To start the stopwatch you should have pressed 0 only");

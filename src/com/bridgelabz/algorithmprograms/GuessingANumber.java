@@ -19,28 +19,32 @@ public class GuessingANumber
 	{
 		
 		int n=Integer.parseInt(args[0]);
-		System.out.println("guess a number between 0 to "+n);
+		System.out.println("guess a number between 0 to "+(n-1));
 		int low=0;
 		int high=n-1;
 		search(low,high);
 	}
 
-	private static int search(int low, int high)
+	private static void search(int low, int high)
 	{
-		if(high-low==1)
-		{
-			return low;
-		}
 		int mid=low+(high-low)/2;
-		System.out.println("is your number greater than "+mid);
-		if(Utility.retBoolean())
+		if(low<high)
 		{
-			return search(mid,high);
+			System.out.println("Is your number in between "+mid+" and "+high);
+			if(Utility.retBoolean())
+			{
+				search(mid+1,high);
+			}
+			else
+			{
+				search(low,mid);
+			}
 		}
 		else
 		{
-			return search(low,mid);
+			System.out.println("the number is "+low);
 		}
+		
 	}
 
 }

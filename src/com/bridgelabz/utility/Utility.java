@@ -1,5 +1,9 @@
 package com.bridgelabz.utility;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -13,10 +17,11 @@ public class Utility {
 
 	
 	
-	/**********************************************************************
+	/**
 	 * @return number a user given number
-	 *********************************************************************/
-	public static int retInt() {         //function to return a Integer value which is given by user.
+	 */
+	//function to return a Integer value which is given by user.
+	public static int retInt() {         
 		return scr.nextInt();
 	}
 
@@ -24,44 +29,46 @@ public class Utility {
 	/**
 	 * @return String a user given word
 	 */
-	public static String retNext() {      //function to return a word of String value which is given by user.
+	 //function to return a word of String value which is given by user.
+	public static String retNext() {      
 		return scr.next();
 	}
 
 	
-	/************************************************************************
+	/**
 	 * @return String a user given sentence/multiple words
-	 *********************************************************************/
-	public static String retNextLine() {       //function to return a String line which is given by user.
+	 */
+	 //function to return a String line which is given by user.
+	public static String retNextLine() {      
 		return scr.nextLine();
 	}
 
 
 
-	/***********************************************************************
+	/**
 	 * @return boolean a user given boolen value
-	 **********************************************************************/
+	 */
 	public static boolean retBoolean() {
 		return scr.nextBoolean();
 	}
 
 
-	/*******************************************************************
+	/**
 	 * @return number a number which is of double type and is given by the user
-	 *******************************************************************/
+	 */
 	public static double retDouble() {
 		return scr.nextDouble();
 	}
 	
 	
 
-	/******************************************************************************
+	/**
 	 * Function to create the array of user's choice
 	 * 
 	 * @param noOfElements to store the array length to be created
 	 * @param array to store the elements in the array
 	 * @return the integer array created
-	 ******************************************************************************/
+	 */
 	public static int[] createIntegerArray() {
 		System.out.println("Enter the number of elements you want to store:-");
 		int noOfElements = Utility.retInt();
@@ -75,12 +82,12 @@ public class Utility {
 
 
 
-	/*****************************************************************************
+	/**
 	 * function to replace a proper username given by user with <<UserName>> from
 	 * the template String
 	 * @param String template from which <<User Name>> should be replaced with actual/proper username
 	 * @return String uname which is a proper name, given by the user
-	 *********************************************************************/
+	 */
 
 	public static String replaceUsrName(String template,String uname) {
 		
@@ -119,10 +126,10 @@ public class Utility {
 		}
 	}
 	
-	/*******************************************************************
+	/**
 	 * @param year year to check for leap year
 	 * @return String message for Leap year or not
-	 *********************************************************************/
+	 */
 	public static String checkLeapYear(int year) {        //function to check a year is leap year or not
 		if (year >= 1000 && year <= 9999) {
 			if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
@@ -138,10 +145,10 @@ public class Utility {
 	}
 
 	
-	/*********************************************************************
+	/**
 	 * @param n number upto which harmonic number should be calculated
 	 * @return double which is the n'th harmonic number
-	 *********************************************************************/
+	 */
 	public static double printNthHarmonic(int n) {         //function to print Nth harmonic number, i.e 1/1 + 1/2 + .... + 1/N
 		
 		double nthHarmonicNumber = 0;
@@ -163,9 +170,9 @@ public class Utility {
 
 	
 
-	/**********************************************************************
+	/**
 	 * @param numberOfTimes a number upto which a coin should be flipped
-	 **********************************************************************/
+	 */
 	public static void PercentOfHeadTail(int numberOfTimes) {         //function to calculate percentage of head and tail after flipping a coin
 		
 		double tail = 0;
@@ -175,7 +182,7 @@ public class Utility {
 		 * (5*100)/10=50
 		 */
 		double percentHead, percentTail;
-		for (int i = 1; i < numberOfTimes; i++) {
+		for (int i = 0; i < numberOfTimes; i++) {
 			if (Math.random() < 0.5) {
 				tail++;
 			} else {
@@ -187,16 +194,16 @@ public class Utility {
 		percentTail = (tail / numberOfTimes) * 100;
 
 		System.out.println("percentage of head is " + percentHead);
-		System.out.println("percentage of head is " + percentTail);
+		System.out.println("percentage of tail is " + percentTail);
 	}
 
 	
-	/***********************************************************************
+	/**
 	 * @param n a number of which all the prime factors is printed
-	 * @return
-	 ************************************************************************/
-	public static Set printPrimeFactors(int n) {         //function to return all prime factors of a given number
-		Set s = new HashSet();
+	 * @return set the distict list of integers/prime factors
+	 */
+	public static Set<Integer> printPrimeFactors(int n) {         //function to return all prime factors of a given number
+		Set<Integer> s = new HashSet<Integer>();
 		while (n % 2 == 0) 
 		{
 			s.add(2);
@@ -216,15 +223,16 @@ public class Utility {
 	}
 
 	
-	/*******************************************************************
+	/**
 	 * @param stake number that a player have
 	 * @param goal number, the player have to make to win
 	 * @param chance number of times the player is allowed to play
-	 ******************************************************************/
-	public static void calWinLossInGambling(int stake, int goal, int chance) {       //function to calculate the number of times a player wins and looses in gambling
+	 */
+	//function to calculate the number of times a player wins and looses in gambling
+	public static void calWinLossInGambling(int stake, int goal, int chance) {       
 		int win = 0, loss = 0;
 
-		for (int i = 1; i < chance; i++) {
+		for (int i = 0; i < chance; i++) {
 			while (stake < goal && stake > 0 && chance > 0) {
 				if (Math.random() >= 0.5)
 				{
@@ -249,27 +257,36 @@ public class Utility {
 	}
 
 	/**
-	 * @param n
-	 * @return
+	 * @param number the number of distinct coupon number required
+	 * @return number the number of random elements created to get the required coupon numbers
 	 */
-	public static int generateCoupNum(int n) 
+	public static int generateCoupNum(int number) 
 	{
 		
 		Random rand = new Random();
-		List<Integer> arr = new ArrayList<>(n);
-		arr.add(rand.nextInt(10));
+		List<Integer> arr = new ArrayList<>(number);
+		arr.add(rand.nextInt(number));
+		System.out.println(arr.get(0));
 		int count = 1;
 		int j = 1;
-		while (j <= n) {
-			int r = rand.nextInt(10);
+		while (j <= number) {
+			int r = rand.nextInt(number);
+			System.out.println(r);
 			if (arr.contains(r)) {
 
 				count++;
+				//System.out.println(count);
 				continue;
 			} else {
 				count++;
+				//System.out.println(count);
 				arr.add(r);
+				/*for(int i=0;i<arr.size();i++)
+				{
+					System.out.println(arr.get(i));
+				}*/
 				j++;
+				System.out.println("the value of j "+j);
 			}
 		}
 		return count;
@@ -277,7 +294,10 @@ public class Utility {
 
 
 
-	public static void print2DArray(int n)
+	/**
+	 * @param option a number which is given as option to create an array
+	 */
+	public static void print2DArray(int option)
 	{
 		System.out.println("enter number of rows of the 2D array");
 		int row=Utility.retInt();
@@ -287,7 +307,7 @@ public class Utility {
 		int[][] inta;
 		double[][] doublea1;
 		boolean[][] boola;
-		switch(n)
+		switch(option)
 		{
 		case 1:
 			inta=new int[row][col];
@@ -348,6 +368,12 @@ public class Utility {
 		}
 
 	}
+	
+	
+	public static <T> void printArrayElement()
+	{
+		
+	}
 
 
 	/**
@@ -374,23 +400,24 @@ public class Utility {
 	}
 
 	/**
-	 * @param firstPoint
-	 * @param secondPoint
+	 * @param firstPoint the point from which the distance will be calculated
+	 * @param secondPoint the point upto which the distance will be calculated
 	 */
-	public static double calEuclideanDistance(int firstPoint, int secondPoint) {
-		double ans=Math.sqrt(Math.pow(firstPoint,2)*Math.pow(secondPoint, 2));
+	public static double calEuclideanDistance(int firstPoint, int secondPoint) 
+	{
+		double ans=Math.sqrt(Math.pow(firstPoint,2)+Math.pow(secondPoint, 2));
 		return ans;
 		
 	}
 
 	/**
-	 * @param firstConstant
-	 * @param secondConstant
-	 * @param lastConstant
+	 * @param firstConstant the constant with X^2 in a quadratic equation
+	 * @param secondConstant the constant with X in a quadratic equation
+	 * @param lastConstant the last constant
 	 */
 	public static double[] calRootsOfQuadraticEquation(int firstConstant, int secondConstant, int lastConstant) {
 		double[] rootArray=new double[2];
-		int delta=secondConstant*secondConstant-(4*firstConstant-lastConstant);
+		double delta=Math.sqrt(secondConstant*secondConstant-(4*firstConstant*lastConstant));
 		double root1=0;
 		double root2=0;
 		double real=0;
@@ -399,14 +426,14 @@ public class Utility {
 		if(delta<0)
 		{
 			real=(-secondConstant/(2*firstConstant));
-			imaginary=Math.sqrt((-delta)/(2*firstConstant));
+			imaginary=(-delta)/(2*firstConstant);
 			root1=real+(2*imaginary);
 			root2=real-(2*imaginary);
 		}
 		else if(delta>0)
 		{
 			real=(-secondConstant/(2*firstConstant));
-			imaginary=Math.sqrt((delta)/(2*firstConstant));
+			imaginary=(delta)/(2*firstConstant);
 			root1=real+(2*imaginary);
 			root2=real-(2*imaginary);
 		}
@@ -421,8 +448,8 @@ public class Utility {
 	}
 
 	/**
-	 * @param tempratureInfahrenheit
-	 * @param windSpeedInMilesPerHour
+	 * @param tempratureInfahrenheit temprature which is in fahrenheit
+	 * @param windSpeedInMilesPerHour speed of wind which is in miles/second
 	 * @return
 	 */
 	public static double defineWeather(double tempratureInfahrenheit, double windSpeedInMilesPerHour) {
@@ -438,14 +465,14 @@ public class Utility {
 	
 	
 	/**
-	 * @param max
-	 * @param min
+	 * @param maximum the highest value upto which random value will be generated
+	 * @param minimum the lowest value starting from which random value will be generated
 	 * @return
 	 */
-	public static int randomWithRange(int max,int min)
+	public static int randomWithRange(int maximum,int minimum)
 	{
-		int range=(max-min)+1;
-		return (int)(Math.random()*range)+min;
+		int range=(maximum-minimum)+1;
+		return (int)(Math.random()*range)+minimum;
 	}
 
 
@@ -467,11 +494,40 @@ public class Utility {
 		return temprary;
 	}
 
-
+	/**
+	 * @param array1 the sorted array on which searching will be done
+	 * @param search1 the element to be searched from the array
+	 * @return number the index of the array where the searching element is present 
+	 */
+	public static int stringBinarySearch(String[] array1, String search1) 
+	{
+		int low=0;
+		int high=array1.length-1;
+		int mid=0;
+		while(low<=high)
+		{
+			mid=low+(high-low)/2;
+			if(array1[mid].equalsIgnoreCase(search1))
+			{
+				
+				return mid;
+			}
+			else if(search1.compareToIgnoreCase(array1[mid])>0)
+			{
+				low=mid+1;
+			}
+			else if(search1.compareToIgnoreCase(array1[mid])<0)
+			{
+				high=mid-1;
+			}
+		}
+		
+		return -1;
+	}
 	
 	/**
-	 * @param array
-	 * @return
+	 * @param array the array to be sorted
+	 * @return array the sorted array
 	 */
 	public static int[] intBubbleSort(int[] array)
 	{
@@ -488,17 +544,13 @@ public class Utility {
 				}
 			}
 		}
-		for(int i=0;i<array.length;i++)
-		{
-			System.out.println(array[i]);
-		}
 		return array;
 	}
 
 
 	/**
-	 * @param number
-	 * @return
+	 * @param number the number which will be checked for prime
+	 * @return true if the given number is prime and false if it is not prime
 	 */
 	public static boolean isPrime(int number) 
 	{
@@ -518,8 +570,8 @@ public class Utility {
 
 
 	/**
-	 * @param i
-	 * @return
+	 * @param number which is to be checked for pallindrome
+	 * @return true if the given number is pallindrome,false if it is not
 	 */
 	public static boolean isPallindrome(int number) 
 	{
@@ -539,9 +591,9 @@ public class Utility {
 
 
 	/**
-	 * @param number1
-	 * @param number2
-	 * @return
+	 * @param number1 the first number which will be checked with the second number for anagram
+	 * @param number2 the first number which will be checked with the second number for anagram
+	 * @return true if the given numbers are anagram
 	 */
 	public static boolean NumAnagramCheck(int number1, int number2) 
 	{
@@ -578,6 +630,10 @@ public class Utility {
 	}
 	
 	
+	/**
+	 * @param string the word which is to be sorted
+	 * @return the sorted string
+	 */
 	public static String stringBubbleSortByLetter(String string) 
 	{
 		char[] array=string.toCharArray();
@@ -596,6 +652,59 @@ public class Utility {
 		}
 		string=new String(array);
 		return string;
+	}
+	
+	
+	/**
+	 * @param array an array which is to be sorted
+	 * @return array an sorted array
+	 */
+	
+	public static String[] stringInsertionSort(String[] array)
+	{
+	      for (int i = 0; i < array.length; i++)
+	      {
+	    	  String key = array[i];
+	    	  int j = i - 1;
+	    	  while (j >= 0 && key.compareToIgnoreCase(array[j]) < 0)
+	    	  {
+	    		  array[j + 1] = array[j];
+	    		  j--;
+	    	  }
+	    	  array[j + 1] = key;
+
+	      }
+	      return array;
+	}
+	
+	
+	
+	/**
+	 * @param fileName the location of the file from where the contents will be readed
+	 * @return contents of the file
+	 */
+	public String readAllFromFile(String fileName)
+	{
+		String line=null;
+		String readedFile="";
+		try 
+		{
+			FileReader filereader=new FileReader(fileName);
+			BufferedReader bufferedReader=new BufferedReader(filereader);
+			while((line=bufferedReader.readLine())!= null)
+			{
+				readedFile+=line;
+			}
+		}
+		catch(FileNotFoundException fileNotFoundException)
+		{
+			System.out.println("your file is not found in the location '"+fileName+"'");
+		}
+		catch(IOException ioException)
+		{
+			System.out.println("Error in reading your file '"+fileName+"'");
+		}
+		return readedFile;
 	}
 	
 }

@@ -21,8 +21,8 @@ public class PowerOf2
 	 */
 	public static void main(String[] args)
 	{
-		int n=Integer.parseInt(args[0]);
-		Utility.printPowOf2(n);
+		int number=Integer.parseInt(args[0]);
+		Utility.printPowOf2(number);
 	}
 
 }

@@ -120,7 +120,7 @@ public class UtilityForSearchingAndSorting
 	}
 	
 	
-	/*********************************************************************************
+	/*
 	 * @param array1
 	 * @param search1
 	 * @return
@@ -165,7 +165,7 @@ public class UtilityForSearchingAndSorting
 	}
 	
 	
-	/********************************************************************************
+	/**
 	 * @param array
 	 * @param search
 	 * @return
@@ -210,7 +210,7 @@ public class UtilityForSearchingAndSorting
 	
 	
 
-	/*************************************************************************************
+	/**
 	 * @param array
 	 * @return
 	 */

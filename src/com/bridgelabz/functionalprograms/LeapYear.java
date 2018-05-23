@@ -13,10 +13,6 @@ package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.utility.Utility;
 
-/**
- * @author bridgelabz
- *
- */
 public class LeapYear 
 {
 

@@ -8,10 +8,6 @@ package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.utility.Utility;
 
-/**
- * @author adminstrato
- *
- */
 public class Distance {
 
 	
