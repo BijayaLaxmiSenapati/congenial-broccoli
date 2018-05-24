@@ -260,20 +260,20 @@ public class Utility {
 	 * @param number the number of distinct coupon number required
 	 * @return number the number of random elements created to get the required coupon numbers
 	 */
-	public static int generateCoupNum(int number) 
+	public static int generateCouponNum(int number) 
 	{
 		
 		Random rand = new Random();
 		List<Integer> arr = new ArrayList<>(number);
 		arr.add(rand.nextInt(number));
 		System.out.println(arr.get(0));
-		int count = 1;
-		int j = 1;
-		while (j <= number) {
+		int count = 1; //number of times random number generated
+		int j = 1;  //number of times distinct number generated 
+		while (j < number) {
 			int r = rand.nextInt(number);
-			System.out.println(r);
+			//System.out.println(r);
+			//System.out.println(arr.contains(r));
 			if (arr.contains(r)) {
-
 				count++;
 				//System.out.println(count);
 				continue;
@@ -289,6 +289,7 @@ public class Utility {
 				System.out.println("the value of j "+j);
 			}
 		}
+		System.out.println("count="+count);
 		return count;
 	}
 
@@ -304,64 +305,67 @@ public class Utility {
 		System.out.println("enter number of columns of the 2D array");
 		int col=Utility.retInt();
 		System.out.println("enter elements of the 2D array row wise");
-		int[][] inta;
-		double[][] doublea1;
-		boolean[][] boola;
+		Integer[][] intArray;
+		Double[][] doubleArray;
+		Boolean[][] boolArray;
 		switch(option)
 		{
 		case 1:
-			inta=new int[row][col];
+			intArray=new Integer[row][col];
 			for(int i=0;i<row;i++)
 			{
 				for(int j=0;j<col;j++)
 				{
-					inta[i][j]=Utility.retInt();
+					intArray[i][j]=Utility.retInt();
 				}
 			}
-			for(int i=0;i<row;i++)
+			print2DArrayElement(intArray);
+			/*for(int i=0;i<row;i++)
 			{
 				for(int j=0;j<col;j++)
 				{
-					System.out.print(inta[i][j]+" ");
+					System.out.print(intArray[i][j]+" ");
 				}
 				System.out.println();
-			}
+			}*/
 			break;
 		case 2:
-			doublea1=new double[row][col];
+			doubleArray=new Double[row][col];
 			for(int i=0;i<row;i++)
 			{
 				for(int j=0;j<col;j++)
 				{
-					doublea1[i][j]=Utility.retDouble();
+					doubleArray[i][j]=Utility.retDouble();
 				}
 			}
-			for(int i=0;i<row;i++)
+			print2DArrayElement(doubleArray);
+			/*for(int i=0;i<row;i++)
 			{
 				for(int j=0;j<col;j++)
 				{
-					System.out.print(doublea1[i][j]+" ");
+					System.out.print(doubleArray[i][j]+" ");
 				}
 				System.out.println();
-			}
+			}*/
 			break;
 		case 3:
-			boola=new boolean[row][col];
+			boolArray=new Boolean[row][col];
 			for(int i=0;i<row;i++)
 			{
 				for(int j=0;j<col;j++)
 				{
-					boola[i][j]=Utility.retBoolean();
+					boolArray[i][j]=Utility.retBoolean();
 				}
 			}
-			for(int i=0;i<row;i++)
+			print2DArrayElement(boolArray);
+			/*for(int i=0;i<row;i++)
 			{
 				for(int j=0;j<col;j++)
 				{
-					System.out.print(boola[i][j]+" ");
+					System.out.print(boolArray[i][j]+" ");
 				}
 				System.out.println();
-			}
+			}*/
 			break;
 		default:
 			System.out.println("you have given one invalid input");
@@ -370,9 +374,20 @@ public class Utility {
 	}
 	
 	
-	public static <T> void printArrayElement()
+	/**
+	 * @param inputArray the array element to be sorted.
+	 */
+	//function to print elements of any type of array
+	public static <E> void print2DArrayElement(E[][] inputArray)
 	{
-		
+		for (E[] outerElements : inputArray) 
+		{
+			for (E innerElements : outerElements) 
+			{
+				System.out.print(innerElements+" ");
+			}
+			System.out.println();
+		}
 	}
 
 
@@ -417,25 +432,21 @@ public class Utility {
 	 */
 	public static double[] calRootsOfQuadraticEquation(int firstConstant, int secondConstant, int lastConstant) {
 		double[] rootArray=new double[2];
-		double delta=Math.sqrt(secondConstant*secondConstant-(4*firstConstant*lastConstant));
+		double delta=secondConstant*secondConstant-(4*firstConstant*lastConstant);
 		double root1=0;
 		double root2=0;
 		double real=0;
 		double imaginary=0;
 		System.out.println("delta="+delta);
-		if(delta<0)
+		if(delta>0)
 		{
-			real=(-secondConstant/(2*firstConstant));
-			imaginary=(-delta)/(2*firstConstant);
-			root1=real+(2*imaginary);
-			root2=real-(2*imaginary);
+			root1=(-(secondConstant)+Math.sqrt(delta))/(2*firstConstant);
+			root1=(-(secondConstant)-Math.sqrt(delta))/(2*firstConstant);
 		}
-		else if(delta>0)
+		else if(delta<0)
 		{
-			real=(-secondConstant/(2*firstConstant));
-			imaginary=(delta)/(2*firstConstant);
-			root1=real+(2*imaginary);
-			root2=real-(2*imaginary);
+			root1=(-secondConstant)/(2*firstConstant);
+			root2=Math.sqrt((-delta)/(2*firstConstant));
 		}
 		else if(delta==0)
 		{
@@ -705,6 +716,122 @@ public class Utility {
 			System.out.println("Error in reading your file '"+fileName+"'");
 		}
 		return readedFile;
+	}
+
+
+	public static void giveMinimumChange(int requiredAmount) 
+	{
+		int[] notesAvailable= {1000,500,100,50,10,5,2,1};
+		int i=0;
+		int count=0;
+		int quotient=0;
+		while(requiredAmount>=1)
+		{
+			quotient=requiredAmount/notesAvailable[i];
+			if(quotient>0)
+			{
+				System.out.println(notesAvailable[i]+"Rs. note="+quotient);
+				count=count+quotient;
+				requiredAmount=requiredAmount%notesAvailable[i];
+			}
+			
+			i++;
+		}
+		System.out.println("minimum number of notes required is ="+count);
+		
+	}
+
+
+	public static int dayOfWeek(int day, int month, int year)
+	{
+	     int y0 = year - (14 - month) / 12;
+	     int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+	     int m0 = month + 12 * ((14 - month) / 12) - 2;
+	     int d0 = (day + x + 31 * m0 / 12) % 7;
+	     return d0;
+	}
+
+
+	public static String decimalToBinary(int decimal) 
+	{
+		String binaryNumberInString="";
+		String temporary="";
+		int numberOfZeroRequired;
+		int number=decimal;
+		while(number>=1)
+		{
+			binaryNumberInString=binaryNumberInString+number%2;
+			number=number/2;
+		}
+		/*if(binaryNumberInString.length()%4!=0 && binaryNumberInString.length()>4)
+		{
+			numberOfZeroRequired=binaryNumberInString.length()-binaryNumberInString.length()%4;
+			binaryNumberInString+=giveZero(numberOfZeroRequired);
+		}
+		else if(binaryNumberInString.length()%4<4)
+		{
+			binaryNumberInString+=giveZero(4-(binaryNumberInString.length()));
+		}*/
+		if(binaryNumberInString.length()>0 && binaryNumberInString.length()<8)
+		{
+			binaryNumberInString+=giveZero(8-binaryNumberInString.length());
+		}
+		for(int i=binaryNumberInString.length()-1;i>=0;i--)
+		{
+			temporary+=binaryNumberInString.charAt(i);
+		}
+		binaryNumberInString=temporary;
+		return binaryNumberInString;
+	}
+
+
+	private static String giveZero(int numberOfZeroRequired)
+	{
+		String s="";
+		for(int i=0;i<numberOfZeroRequired;i++)
+		{
+			s=s+0;
+		}
+		return s;
+	}
+
+	public static int binaryToDecimal(String binary)
+	{
+		int decimal=0;
+		int index=0;
+		for(int i=binary.length()-1;i>=0;i--)
+		{
+			if(binary.charAt(i)=='1')
+			{
+				decimal=decimal+(int)Math.pow(2, index);
+			}
+			index++;
+		}
+		return decimal;
+	}
+
+
+	public static double sqrt(int c) 
+	{
+		 double t=c;
+         double epsilon=1e-15;
+         while(Math.abs(t-c/t) > epsilon*t)
+         {
+             t = (c/t + t)/2;
+         }
+         return t;
+		
+	}
+
+
+	public static double monthlyPayment(double principal, double numberOfYears, double rateOfIntrest) 
+	{
+		 double payment=0;
+		 double r =rateOfIntrest/(1200);
+		 double months=12*numberOfYears;
+		 payment= (principal*r)/(1-1/(Math.pow((1+r), months)));
+		// System.out.println("The Monthly Payment is : "+payment);
+		 return payment;
 	}
 	
 }
