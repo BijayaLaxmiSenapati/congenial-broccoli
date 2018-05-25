@@ -8,7 +8,7 @@ public class MyLinkedList
 	private Node first;
 	private Node last;
 	//
-	int count=0;
+	private int count=0;
 	/**
 	 * @param element
 	 */
@@ -41,11 +41,8 @@ public class MyLinkedList
 	 */
 	public boolean isEmpty()
 	{
-		if(count==0)
-		{
-			return true;
-		}
-		return false;
+		return(count==0);
+		
 	}
 	
 	
@@ -136,5 +133,62 @@ public class MyLinkedList
 		}
 		return -1;
 	}
+	
+	/*public void remove(Object element)
+	{
+		Node temp=first;
+		while(temp.next!=null)
+		{
+			if(temp.element==element )
+			{
+				temp=temp.next.next;
+				return;
+			}
+			temp=temp.next;
+		}
+	}*/
+	
+	public void remove(int index)
+	{
+		
+		if(index>=size())
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		if(index==0)
+		{
+			first=first.next;
+			count--;
+			return;
+		}
+		Node temp = first;
+		for(int i=0;i<index-1;i++)
+		{
+			temp=temp.next;
+		}
+		temp.next=temp.next.next;
+		count--;
+	}
+	
+	/*
+	public int pop()
+	{
+		Node temp=first;
+		while(temp.next!=null)
+		{
+			temp=temp.next;
+		}
+		int lastElement=(int)temp.element;
+		Node tempForIteration=first;
+		
+		return lastElement;
+	}*/
+	
+	
+	public int pop(int index)
+	{
+		return 0;
+	}
+	
 	
 }

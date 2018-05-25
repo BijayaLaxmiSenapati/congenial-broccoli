@@ -1,5 +1,8 @@
 /**
- * 
+ * purpose: gives day of the week for the given date
+ * @author:Bijaya Laxmi Senapati
+ * @since:24/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.algorithmprograms;
 

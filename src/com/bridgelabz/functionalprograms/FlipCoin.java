@@ -17,7 +17,7 @@ public class FlipCoin
 	{
 		System.out.println("enter how many times the coin should be flipped");
 		int numberOfTimes = Utility.retInt();
-		Utility.PercentOfHeadTail(numberOfTimes);
+		Utility.percentOfHeadTail(numberOfTimes);
 	}
 
 }

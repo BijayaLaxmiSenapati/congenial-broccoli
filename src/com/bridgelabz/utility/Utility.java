@@ -181,7 +181,8 @@ public class Utility {
 		 * the calculation i.e "(5/10)*100=0" and this problem can be solved by
 		 * (5*100)/10=50
 		 */
-		double percentHead, percentTail;
+		double percentHead;
+		double percentTail;
 		for (int i = 0; i < numberOfTimes; i++) {
 			if (Math.random() < 0.5) {
 				tail++;
@@ -204,21 +205,22 @@ public class Utility {
 	 */
 	 //function to return all prime factors of a given number
 	public static Set<Integer> printPrimeFactors(int n) {         //function to return all prime factors of a given number
+		int m=n;
 		Set<Integer> s = new HashSet<Integer>();
-		while (n % 2 == 0) 
+		while (m % 2 == 0) 
 		{
 			s.add(2);
-			n = n / 2;
+			m = m / 2;
 		}
-		for (int i = 3; i <= Math.sqrt(n); i = i + 2) {
-			if (n % i == 0) 
+		for (int i = 3; i <= Math.sqrt(m); i = i + 2) {
+			if (m % i == 0) 
 			{
 				s.add(i);
-				n = n / i;
+				m = m / i;
 			}
 		}
-		if (n > 2) {
-			s.add(n);
+		if (m > 2) {
+			s.add(m);
 		}
 		return s;
 	}
@@ -543,7 +545,7 @@ public class Utility {
 	 * @param array the array to be sorted
 	 * @return array the sorted array
 	 */
-	public static int[] intBubbleSort(int[] array)
+	public static Integer[] intBubbleSort(Integer[] array)
 	{
 		
 		for(int i=0;i<array.length-1;i++)
@@ -552,7 +554,7 @@ public class Utility {
 			{
 				if(array[i]>array[j])
 				{
-					int temprary=array[i];
+					Integer temprary=array[i];
 					array[i]=array[j];
 					array[j]=temprary;
 				}
@@ -629,6 +631,36 @@ public class Utility {
 			return z;
 		
 	}
+	
+	
+	public static int intBinarySearch(int[] array,int search)
+	{
+		
+		int low=0;
+		int high=array.length-1;
+		int mid=0;
+		
+		while(low<=high)
+		{
+			mid=(int)(low+(high-low)/2);
+			if(array[mid]==search)
+			{
+				
+				return mid;
+			}
+			else if(search<array[mid])
+			{
+				high=mid-1;
+			}
+			else if(search>array[mid])
+			{
+				low=mid+1;
+			}	
+		}
+		
+		return -1;
+	}
+	
 	
 	
 	/**
@@ -823,5 +855,44 @@ public class Utility {
 		// System.out.println("The Monthly Payment is : "+payment);
 		 return payment;
 	}
+
+
+	public static <E>void print1DArrayElements(E[] array)
+	{
+		for(E element:array)
+		{
+			System.out.print(element);
+		}
+		
+	}
+	
+	
+	
+
+	/**********************************************************************************
+	 * @param string
+	 * @return
+	 */
+	public static String[] stringBubbleSort(String[] array) 
+	{
+		
+		String temprary="";
+		
+		for(int i=0;i<array.length-1;i++)
+		{
+			for(int j=0;j<array.length-1-i;j++)
+			{
+				if(array[j].compareTo(array[j+1])>0)
+				{
+					temprary=array[j];
+					array[j]=array[j+1];
+					array[j+1]=temprary;
+				}
+			}
+		}
+		
+		return array;
+	}
+	
 	
 }

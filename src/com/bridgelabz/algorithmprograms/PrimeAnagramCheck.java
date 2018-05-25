@@ -1,5 +1,8 @@
 /**
- * 
+ * purpose: prints all the pair of prime numbers which are anagram
+ * @author:Bijaya Laxmi Senapati
+ * @since:24/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.algorithmprograms;
 import java.util.ArrayList;
@@ -31,7 +34,7 @@ public class PrimeAnagramCheck {
 		{
 			for(int j=i+1;j<list.size();j++)
 			{
-				if(Utility.NumAnagramCheck(list.get(i),list.get(j)))
+				if(Utility.numAnagramCheck(list.get(i),list.get(j)))
 				{
 					distinctElement.add(list.get(i));
 					distinctElement.add(list.get(j));

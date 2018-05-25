@@ -16,7 +16,7 @@ public class BubbleSort
 	{
 		System.out.println("enter how many numbers you want to store");
 		int size=Utility.retInt();
-		int[] array=new int[size];
+		Integer[] array=new Integer[size];
 		System.out.println("enter one by one integer");
 		for(int i=0;i<size;i++)
 		{

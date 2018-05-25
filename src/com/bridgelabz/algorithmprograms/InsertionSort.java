@@ -6,9 +6,6 @@
  */
 package com.bridgelabz.algorithmprograms;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.bridgelabz.utility.Utility;
 
 public class InsertionSort 

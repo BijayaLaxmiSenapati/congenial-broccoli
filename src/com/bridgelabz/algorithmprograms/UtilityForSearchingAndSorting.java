@@ -26,7 +26,7 @@ public class UtilityForSearchingAndSorting
 		System.out.println("enter the searching element(for binary search if integer)");
 		int search=Utility.retInt();
 		
-		array=UtilityForSearchingAndSorting.intBubbleSort(array);
+		array=Utility.intBubbleSort(array);
 		
 		System.out.println("At "+UtilityForSearchingAndSorting.intBinarySearch(array,search)+" index "+search+" is present");
 		

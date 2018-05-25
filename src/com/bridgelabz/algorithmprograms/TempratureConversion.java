@@ -1,5 +1,8 @@
 /**
- * 
+ * purpose:this program converts celcius to fahrenheit and vice versa
+ * @author:Bijaya Laxmi Senapati
+ * @since:24/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.algorithmprograms;
 
@@ -29,6 +32,8 @@ public class TempratureConversion
 	            temparature = (temparatureInC * 9 / 5) + 32;
 	            System.out.println("Celsius to Fahrenheit: " + temparature + "F");
 	            break;
+	     default:
+	    	    System.out.println("invalid input");
 	     }
 	}
 

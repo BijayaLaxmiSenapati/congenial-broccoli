@@ -33,6 +33,7 @@ public class Binary {
 		}
 		System.out.println("the swaped decimal number "+swapedDecimal+
 				" is divisible by any power of 2");
+		
 	}
 
 }

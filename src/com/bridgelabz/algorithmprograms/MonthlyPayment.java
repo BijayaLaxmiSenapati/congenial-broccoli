@@ -1,5 +1,11 @@
 /**
- * 
+ * purpose: calculate monthlyPayment that reads in three
+command­line arguments P, Y, and R and calculates the monthly payments you
+would have to make over Y years to pay off a P principal loan amount at R per cent
+interest compounded monthly.
+ * @author:Bijaya Laxmi Senapati
+ * @since:24/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.algorithmprograms;
 

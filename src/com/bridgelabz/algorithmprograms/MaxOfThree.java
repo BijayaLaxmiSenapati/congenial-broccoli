@@ -3,17 +3,8 @@
  */
 package com.bridgelabz.algorithmprograms;
 
-import com.bridgelabz.utility.Utility;
-
-/**
- * @author adminstrato
- *
- */
 public class MaxOfThree {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
