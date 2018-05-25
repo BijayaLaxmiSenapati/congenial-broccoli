@@ -136,11 +136,8 @@ public class TicTacToe
 	 */
 	private static boolean checkDiagonalWin(char box[][]) 
 	{
-		if(checkEqual(box[0][0], box[1][1], box[2][2]) || checkEqual(box[2][0], box[1][1], box[0][1]))
-		{
-			return true;
-		}
-		return false;
+		return (checkEqual(box[0][0], box[1][1], box[2][2]) || checkEqual(box[2][0], box[1][1], box[0][1]));
+		
 	}
 
 	/**

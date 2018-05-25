@@ -173,7 +173,7 @@ public class Utility {
 	/**
 	 * @param numberOfTimes a number upto which a coin should be flipped
 	 */
-	public static void PercentOfHeadTail(int numberOfTimes) {         //function to calculate percentage of head and tail after flipping a coin
+	public static void percentOfHeadTail(int numberOfTimes) {         //function to calculate percentage of head and tail after flipping a coin
 		
 		double tail = 0;
 		double head = 0;/*
@@ -202,6 +202,7 @@ public class Utility {
 	 * @param n a number of which all the prime factors is printed
 	 * @return set the distict list of integers/prime factors
 	 */
+	 //function to return all prime factors of a given number
 	public static Set<Integer> printPrimeFactors(int n) {         //function to return all prime factors of a given number
 		Set<Integer> s = new HashSet<Integer>();
 		while (n % 2 == 0) 
@@ -230,7 +231,8 @@ public class Utility {
 	 */
 	//function to calculate the number of times a player wins and looses in gambling
 	public static void calWinLossInGambling(int stake, int goal, int chance) {       
-		int win = 0, loss = 0;
+		int win = 0;
+		int loss = 0;
 
 		for (int i = 0; i < chance; i++) {
 			while (stake < goal && stake > 0 && chance > 0) {
@@ -394,7 +396,7 @@ public class Utility {
 	/**
 	 * @param arr an array of type integer which has all the user given integers 
 	 */
-	public static void combineToGetZero(int[] arr)
+	public static int combineToGetZero(int[] arr)
 	{
 		int count=0;
 		for(int i=0;i<arr.length;i++)
@@ -411,6 +413,7 @@ public class Utility {
 				}
 			}
 		}
+		return count;
 
 	}
 
@@ -593,11 +596,8 @@ public class Utility {
 			reverseNumber=reverseNumber*10+(copyNumber%10);
 			copyNumber=copyNumber/10;
 		}
-		if(reverseNumber==number)
-		{
-			return true;
-		}
-		return false;
+		return (reverseNumber==number);
+		
 	}
 
 
@@ -606,15 +606,12 @@ public class Utility {
 	 * @param number2 the first number which will be checked with the second number for anagram
 	 * @return true if the given numbers are anagram
 	 */
-	public static boolean NumAnagramCheck(int number1, int number2) 
+	public static boolean numAnagramCheck(int number1, int number2) 
 	{
 		String tempNumber1=number1+"";
 		String tempNumber2=number2+"";
-		if(Utility.stringBubbleSortByLetter(tempNumber1).equals(Utility.stringBubbleSortByLetter(tempNumber2)))
-		{
-			return true;
-		}
-		return false;
+		return (Utility.stringBubbleSortByLetter(tempNumber1).equals(Utility.stringBubbleSortByLetter(tempNumber2)));
+		
 	}
 	
 

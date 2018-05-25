@@ -23,7 +23,8 @@ public class ResToZero
 		{
 			arr[i]=Utility.retInt();
 		}
-		Utility.combineToGetZero(arr);
+		System.out.println(Utility.combineToGetZero(arr)+
+				" number of distinct triplets are present which gives a output zero after adding");
 	}
 
 }

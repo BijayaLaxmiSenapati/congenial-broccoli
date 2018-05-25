@@ -8,10 +8,6 @@ package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.utility.Utility;
 
-/**
- * @author adminstrato
- *
- */
 public class StopWatch {
 
 	public static void main(String[] args) {
@@ -32,6 +28,9 @@ public class StopWatch {
 			case 0:
 				stopTime=System.nanoTime();
 				flag=1;
+				break;
+			default:
+				System.out.println("enter a valid option");
 			}
 		}
 		double elapsedTime=(stopTime-startTime)/Math.pow(10, 9);

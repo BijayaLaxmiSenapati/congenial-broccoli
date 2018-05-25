@@ -11,12 +11,9 @@ import com.bridgelabz.utility.Utility;
 public class UtilityForSearchingAndSorting
 {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args)
 	{
-		//for binary search of integer*****************************************************
+		//for binary search of integer
 		System.out.println("enter how many elements you want to store in the array(for binary search if integer)");
 		int size=Utility.retInt();
 		int[] array=new int[size];
@@ -35,7 +32,7 @@ public class UtilityForSearchingAndSorting
 		
 		
 		
-		//	for binary search of strings************************************************
+		//	for binary search of strings
 		System.out.println("enter how many elements you want to store in the array(for binary search of strings)");
 		int size1=Utility.retInt();
 		String[] array1=new String[size1];
@@ -56,7 +53,7 @@ public class UtilityForSearchingAndSorting
 		
 		
 		
-		//for bubble sort of integer*****************************************************
+		//for bubble sort of integer
 		System.out.println("enter how many elements you want to store in the array (for bubble sort)");
 		int size3=Utility.retInt();
 		int[] array3=new int[size3];
@@ -73,7 +70,7 @@ public class UtilityForSearchingAndSorting
 		}
 		
 		
-		//for bubble sort of string*******************************************************
+		//for bubble sort of string
 		System.out.println("enter a string which you want to sort(for bubble sort)");
 		String string6=Utility.retNextLine();
 		String[] array6=string6.split(" ");
@@ -87,7 +84,7 @@ public class UtilityForSearchingAndSorting
 		System.out.println("the sorted string(bubble sort) is "+string6);
 		
 		
-		//for insertion sort of integer***********************************************
+		//for insertion sort of integer
 		System.out.println("enter size of the array(for insertion sort of integer)");
 		int size4=Utility.retInt();
 		int array4[]=new int[size4];
@@ -104,7 +101,7 @@ public class UtilityForSearchingAndSorting
 		}
 		
 		
-		//for insertion sort of string***************************************************
+		//for insertion sort of string
 		System.out.println("enter a string which you want to sort(for insertion sort)");
 		String string5=Utility.retNextLine();
 		String[] array5=string5.split(" ");
