@@ -1,7 +1,7 @@
 /**
  * 
  */
-package datastructureprograms;
+package com.bridgelabz.datastructureprograms;
 
 public class Node
 {
