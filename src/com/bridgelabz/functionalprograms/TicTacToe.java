@@ -16,7 +16,7 @@ public class TicTacToe
 	public static void main(String[] args) 
 	{
 		Random random=new Random();
-		char[][] box=new char[3][3];
+		Character[][] box=new Character[3][3];
 		int l1=0;
 		int l2=0;
 		int count=1;
@@ -36,14 +36,9 @@ public class TicTacToe
 		while(checkForWin(box)==false && count<=8)
 		{
 			//it prints the contents of the box before asking input from the user
-			for(int i=0;i<3;i++)
-			{
-				for(int j=0;j<3;j++)
-				{
-					System.out.print(box[i][j]);
-				}
-				System.out.println();
-			}
+			
+			Utility.print2DArrayElement(box);//prints element with space
+			System.out.println("________________________");
 			System.out.println("enter the row number, which should be in between 0 to 2");
 			l1=Utility.retInt();
 			System.out.println("enter the col number, which should be in between 0 to 2");
@@ -52,14 +47,9 @@ public class TicTacToe
 			{
 				box[l1][l2]='o';
 				//prints the 2D array or board
-				for(int i=0;i<3;i++)       
-				{
-					for(int j=0;j<3;j++)
-					{
-						System.out.print(box[i][j]);
-					}
-					System.out.println();
-				}
+				
+				Utility.print2DArrayElement(box);
+				System.out.println("________________________");
 				count++;
 			}
 			else
@@ -73,14 +63,10 @@ public class TicTacToe
 			if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box)==false && count<=8))
 			{
 				box[l1][l2]='X';
-				for(int i=0;i<3;i++)        //prints the 2D array or board
-				{
-					for(int j=0;j<3;j++)
-					{
-						System.out.print(box[i][j]);
-					}
-					System.out.println();
-				}
+				//prints the 2D array or board
+				
+				Utility.print2DArrayElement(box);
+				System.out.println("________________________");
 				count++;
 			}
 			else
@@ -92,14 +78,10 @@ public class TicTacToe
 					if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box)==false && count<=8))
 					{
 						box[l1][l2]='X';
-						for(int i=0;i<3;i++)         //prints the 2D array or board
-						{
-							for(int j=0;j<3;j++)
-							{
-								System.out.print(box[i][j]);
-							}
-							System.out.println();
-						}
+						//prints the 2D array or board
+						
+						Utility.print2DArrayElement(box);
+						System.out.println("________________________");
 						count++;
 						break;
 					}
@@ -125,7 +107,7 @@ public class TicTacToe
 	 * @param box/2D array the array to check whether a line element of that array is same or not
 	 * @return true if a line of the given array has same elements else false
 	 */
-	private static boolean checkForWin(char box[][]) 
+	private static boolean checkForWin(Character box[][]) 
 	{
 		return (checkRowWin(box) || checkColWin(box) || checkDiagonalWin(box));
 	}
@@ -134,7 +116,7 @@ public class TicTacToe
 	 * @param box/2D array to check whether the elements of any diagonal is same or not
 	 * @return true if elements of any diagonal is equal else false
 	 */
-	private static boolean checkDiagonalWin(char box[][]) 
+	private static boolean checkDiagonalWin(Character box[][]) 
 	{
 		return (checkEqual(box[0][0], box[1][1], box[2][2]) || checkEqual(box[2][0], box[1][1], box[0][1]));
 		
@@ -144,7 +126,7 @@ public class TicTacToe
 	 * @param box/2D array to check whether the elements of any column is equal or not
 	 * @return true if elements of any column is equal else false
 	 */
-	private static boolean checkColWin(char box[][]) 
+	private static boolean checkColWin(Character box[][]) 
 	{
 		char c1;
 		char c2;
@@ -166,7 +148,7 @@ public class TicTacToe
 	 * @param box/2D array to check whether the elements of any row is equal or not
 	 * @return true if elements of any row is equal else false
 	 */
-	private static boolean checkRowWin(char box[][]) 
+	private static boolean checkRowWin(Character box[][]) 
 	{
 		char c1;
 		char c2;
