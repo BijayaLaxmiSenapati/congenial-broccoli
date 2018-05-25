@@ -33,7 +33,7 @@ public class TicTacToe
 		l1=random.nextInt(3);
 		l2=random.nextInt(3);
 		box[l1][l2]='X';
-		while(!checkForWin(box) && count!=8)
+		while(checkForWin(box)==false && count<=8)
 		{
 			//it prints the contents of the box before asking input from the user
 			for(int i=0;i<3;i++)
@@ -48,10 +48,11 @@ public class TicTacToe
 			l1=Utility.retInt();
 			System.out.println("enter the col number, which should be in between 0 to 2");
 			l2=Utility.retInt();
-			if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box) && count!=8))
+			if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box)==false && count<=8))
 			{
 				box[l1][l2]='o';
-				for(int i=0;i<3;i++)       //prints the 2D array or board
+				//prints the 2D array or board
+				for(int i=0;i<3;i++)       
 				{
 					for(int j=0;j<3;j++)
 					{
@@ -69,7 +70,7 @@ public class TicTacToe
 			//for system
 			l1=random.nextInt(3);
 			l2=random.nextInt(3);
-			if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box) && count!=8))
+			if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box)==false && count<=8))
 			{
 				box[l1][l2]='X';
 				for(int i=0;i<3;i++)        //prints the 2D array or board
@@ -88,7 +89,7 @@ public class TicTacToe
 				{
 					l1=random.nextInt(3);
 					l2=random.nextInt(3);
-					if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box) && count!=8))
+					if(box[l1][l2]!='X' && box[l1][l2]!='o' || (checkForWin(box)==false && count<=8))
 					{
 						box[l1][l2]='X';
 						for(int i=0;i<3;i++)         //prints the 2D array or board

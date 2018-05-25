@@ -16,7 +16,7 @@ public class CouponNumber
 	{
 		System.out.println("enter how many distinct coupon numbers you want");
 		int n = Utility.retInt();
-		System.out.println("to generate distinct coupon numbers "+Utility.generateCoupNum(n)+" random numbers are needed");
+		System.out.println("to generate distinct coupon numbers "+Utility.generateCouponNum(n)+" random numbers are needed");
 
 	}
 
