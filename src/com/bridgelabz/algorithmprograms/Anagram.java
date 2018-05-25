@@ -11,9 +11,6 @@ import com.bridgelabz.utility.Utility;
 public class Anagram 
 {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) 
 	{
 		System.out.println("enter the first string");

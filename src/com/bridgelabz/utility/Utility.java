@@ -606,14 +606,7 @@ public class Utility {
 		return false;
 	}
 	
-	
-	/**
-	 * @param array
-	 * @param search
-	 * @return
-	 */
-	
-	
+
 	public static <T extends Comparable<T>> T maxOfThree(T x,T y,T z)
 	{
 		if(x.compareTo(y)>0 && x.compareTo(z)>0)
