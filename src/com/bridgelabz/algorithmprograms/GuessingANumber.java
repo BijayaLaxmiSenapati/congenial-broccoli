@@ -21,29 +21,7 @@ public class GuessingANumber
 		System.out.println("guess a number between 0 to "+(n-1));
 		int low=0;
 		int high=n-1;
-		search(low,high);
+		int item=Utility.search(low,high);
+		System.out.println("the number is "+item);
 	}
-
-	private static void search(int low, int high)
-	{
-		int mid=low+(high-low)/2;
-		if(low<high)
-		{
-			System.out.println("Is your number in between "+mid+" and "+high);
-			if(Utility.retBoolean())
-			{
-				search(mid+1,high);
-			}
-			else
-			{
-				search(low,mid);
-			}
-		}
-		else
-		{
-			System.out.println("the number is "+low);
-		}
-		
-	}
-
 }

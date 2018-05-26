@@ -3,25 +3,28 @@
  */
 package com.bridgelabz.datastructureprograms;
 
-public class MyLinkedList
+public class MyLinkedList<T>
 {
-	private Node first;
-	private Node last;
-	//
+	private Node<T> first;
+	private Node<T> last;
 	private int count=0;
+	public MyLinkedList()
+	{
+		
+	}
 	/**
 	 * @param element
 	 */
-	public void add(Object element)
+	public void add(T element)
 	{
 		if(first==null)
 		{
-			first=new Node(element);
+			first=new Node<T>((T)element);
 			last=first;
 			count++;
 			return;
 		}
-		last.next=new Node(element);
+		last.next=new Node<T>((T)element);
 		last=last.next;
 		count++;
 		return;
@@ -51,7 +54,7 @@ public class MyLinkedList
 	 * @param position
 	 * @param item
 	 */
-	public void insert(int index, Object element)
+	public void insert(int index, T element)
 	{
 		if(index>=size())
 		{
@@ -59,16 +62,16 @@ public class MyLinkedList
 		}
 		if(index==0)
 		{
-			first=new Node(element,first);
+			first=new Node<T>(element,first);
 			count++;
 			return;
 		}
-		Node temp=first;
+		Node<T> temp=first;
 		for(int i=1;i<index;i++)
 		{
 			temp=temp.next;
 		}
-		temp.next=new Node(element,temp.next);
+		temp.next=new Node<T>(element,temp.next);
 		count++;
 	}
 	
@@ -78,7 +81,7 @@ public class MyLinkedList
 	 */
 	public void display()
 	{
-		Node temp=first;
+		Node<T> temp=first;
 		for(int i=0;i<size();i++)
 		{
 			System.out.println(temp.element);
@@ -90,9 +93,13 @@ public class MyLinkedList
 	 * @param index
 	 * @return
 	 */
-	public Object get(int index)
+	public T get(int index)
 	{
-		Node temp=first;
+		if(index>=size())
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		Node<T> temp=first;
 		for(int i=0;i<index;i++)
 		{
 			temp=temp.next;
@@ -105,12 +112,12 @@ public class MyLinkedList
 	 * @param searchElement
 	 * @return
 	 */
-	public boolean search(Object searchElement)
+	public boolean search(T searchElement)
 	{
-		Node temp=first;
+		Node<T> temp=first;
 		for(int i=0;i<size();i++)
 		{
-			if(temp.element==searchElement)
+			if(temp.element.equals(searchElement))
 			{
 				return true;
 			}
@@ -120,9 +127,9 @@ public class MyLinkedList
 	}
 	
 	
-	public int index(Object element)
+	public int index(T element)
 	{
-		Node temp=first;
+		Node<T> temp=first;
 		for(int i=0;i<size();i++)
 		{
 			if(temp.element==element)
@@ -134,19 +141,33 @@ public class MyLinkedList
 		return -1;
 	}
 	
-	/*public void remove(Object element)
+	public void remove(T element)
 	{
-		Node temp=first;
+		Node<T> temp=first;
+		Node<T> previous=null;
+		if(first.element==element)
+		{
+			first=first.next;
+			count--;
+			return;
+		}
 		while(temp.next!=null)
 		{
-			if(temp.element==element )
+			if(temp.element==element)
 			{
-				temp=temp.next.next;
+				previous.next=temp.next;
+				count--;
 				return;
 			}
+			previous=temp;
 			temp=temp.next;
 		}
-	}*/
+		if(temp.next==null)
+		{
+			previous.next=null;
+			count--;
+		}
+	}
 	
 	public void remove(int index)
 	{
@@ -161,7 +182,7 @@ public class MyLinkedList
 			count--;
 			return;
 		}
-		Node temp = first;
+		Node<T> temp = first;
 		for(int i=0;i<index-1;i++)
 		{
 			temp=temp.next;
@@ -170,24 +191,46 @@ public class MyLinkedList
 		count--;
 	}
 	
-	/*
-	public int pop()
+	
+	public Object pop()
 	{
-		Node temp=first;
+		Node<T> temp=first;
+		Node<T> previous=null;
 		while(temp.next!=null)
+		{
+			previous=temp;
+			temp=temp.next;
+		}
+		Object lastElement=temp.element;
+		previous.next=null;
+		count--;
+		return lastElement;
+		
+	}
+	
+	
+	public Object pop(int index)
+	{
+		if(index>=size())
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		if(index==0)
+		{
+			Object firstElement=first.element;
+			first=first.next;
+			count--;
+			return firstElement;
+		}
+		Node<T> temp = first;
+		for(int i=0;i<index-1;i++)
 		{
 			temp=temp.next;
 		}
-		int lastElement=(int)temp.element;
-		Node tempForIteration=first;
-		
-		return lastElement;
-	}*/
-	
-	
-	public int pop(int index)
-	{
-		return 0;
+		Object elementAtIndex=temp.next.element;
+		temp.next=temp.next.next;
+		count--;
+		return elementAtIndex;
 	}
 	
 	

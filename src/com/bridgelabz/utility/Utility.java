@@ -381,7 +381,7 @@ public class Utility {
 	/**
 	 * @param inputArray the array element to be sorted.
 	 */
-	//function to print elements of any type of array
+	//function to print elements of any type of 2D array
 	public static <E> void print2DArrayElement(E[][] inputArray)
 	{
 		for (E[] outerElements : inputArray) 
@@ -541,6 +541,39 @@ public class Utility {
 		return -1;
 	}
 	
+	
+
+	/**
+	 * @param array1 the sorted array on which searching will be done
+	 * @param search1 the element to be searched from the array
+	 * @return number the index of the array where the searching element is present 
+	 */
+	public static <E extends Comparable> int stringBinarySearch(E[] array1, E search1) 
+	{
+		int low=0;
+		int high=array1.length-1;
+		int mid=0;
+		while(low<=high)
+		{
+			mid=low+(high-low)/2;
+			if(array1[mid].compareTo(search1)==0)
+			{
+				
+				return mid;
+			}
+			else if(search1.compareTo(array1[mid])>0)
+			{
+				low=mid+1;
+			}
+			else if(search1.compareTo(array1[mid])<0)
+			{
+				high=mid-1;
+			}
+		}
+		
+		return -1;
+	}
+	
 	/**
 	 * @param array the array to be sorted
 	 * @return array the sorted array
@@ -563,6 +596,28 @@ public class Utility {
 		return array;
 	}
 
+	
+	/**
+	 * @param array a array to be sorted
+	 * @return the sorted array
+	 */
+	public static <E extends Comparable> E[] bubbleSort(E[] array)
+	{
+		
+		for(int i=0;i<array.length-1;i++)
+		{
+			for(int j=i+1;j<array.length;j++)
+			{
+				if(array[i].compareTo(array[j])>0)
+				{
+					E temprary=array[i];
+					array[i]=array[j];
+					array[j]=temprary;
+				}
+			}
+		}
+		return array;
+	}
 
 	/**
 	 * @param number the number which will be checked for prime
@@ -633,7 +688,12 @@ public class Utility {
 	}
 	
 	
-	public static int intBinarySearch(int[] array,int search)
+	/**
+	 * @param array a array from which one element will be searched
+	 * @param search a searching element which will be searched from the given array
+	 * @return number returns the index of the searching element
+	 */
+	public static int intBinarySearch(Integer[] array,int search)
 	{
 		
 		int low=0;
@@ -741,6 +801,9 @@ public class Utility {
 	}
 
 
+	/**
+	 * @param requiredAmount the amount for which change notes will be calculated
+	 */
 	public static void giveMinimumChange(int requiredAmount) 
 	{
 		int[] notesAvailable= {1000,500,100,50,10,5,2,1};
@@ -764,6 +827,12 @@ public class Utility {
 	}
 
 
+	/**
+	 * @param day is date
+	 * @param month is month number
+	 * @param year is year
+	 * @return number a number which specifies day
+	 */
 	public static int dayOfWeek(int day, int month, int year)
 	{
 	     int y0 = year - (14 - month) / 12;
@@ -774,6 +843,10 @@ public class Utility {
 	}
 
 
+	/**
+	 * @param decimal the decimal number which is to be converted into binary
+	 * @return the binary value of the given decimal which is in type string
+	 */
 	public static String decimalToBinary(int decimal) 
 	{
 		String binaryNumberInString="";
@@ -807,6 +880,10 @@ public class Utility {
 	}
 
 
+	/**
+	 * @param numberOfZeroRequired the number of zeros the user needs
+	 * @return returns specified number of zeros in the form of string
+	 */
 	private static String giveZero(int numberOfZeroRequired)
 	{
 		String s="";
@@ -817,6 +894,10 @@ public class Utility {
 		return s;
 	}
 
+	/**
+	 * @param binary the binary number which is in string type, and will converted in decimal value
+	 * @return returns decimal value of the given binary
+	 */
 	public static int binaryToDecimal(String binary)
 	{
 		int decimal=0;
@@ -833,6 +914,10 @@ public class Utility {
 	}
 
 
+	/**
+	 * @param c the number whose square root value will be calculated by using newtons method
+	 * @return returns the square root value of the given number
+	 */
 	public static double sqrt(int c) 
 	{
 		 double t=c;
@@ -846,6 +931,12 @@ public class Utility {
 	}
 
 
+	/**
+	 * @param principal it is the pricipal amount
+	 * @param numberOfYears it is the number of years in which the user have to earn the repay amount
+	 * @param rateOfIntrest it is the rate of intrest
+	 * @return
+	 */
 	public static double monthlyPayment(double principal, double numberOfYears, double rateOfIntrest) 
 	{
 		 double payment=0;
@@ -857,11 +948,14 @@ public class Utility {
 	}
 
 
+	/**
+	 * @param array the array whose elements will be printed
+	 */
 	public static <E>void print1DArrayElements(E[] array)
 	{
 		for(E element:array)
 		{
-			System.out.print(element);
+			System.out.print(element+" ");
 		}
 		
 	}
@@ -869,9 +963,10 @@ public class Utility {
 	
 	
 
-	/**********************************************************************************
-	 * @param string
-	 * @return
+	
+	/**
+	 * @param array the string type of array which will be sorted
+	 * @return returns a sorted array
 	 */
 	public static String[] stringBubbleSort(String[] array) 
 	{
@@ -893,6 +988,81 @@ public class Utility {
 		
 		return array;
 	}
+	
+	
+
+	/**
+	 * @param array the array whose elements will be sorted
+	 * @return the sorted array of Integer type
+	 */
+	public static Integer[] intInsertionSort(Integer[] array)
+	{
+
+		
+		for(int i=1;i<array.length;i++)
+		{
+			int key=array[i];
+			int j=i-1;
+			while(j>=0 && array[j]>key)
+			{
+				array[j+1]=array[j];
+				j=j-1;
+			}
+			array[j+1]=key;
+		}
+		
+		return array;
+	}
+	
+	
+	/**
+	 * @param array 
+	 * @return
+	 */
+	public static <E extends Comparable> E[] insertionSort(E[] array)
+	{
+
+		
+		for(int i=1;i<array.length;i++)
+		{
+			E key=array[i];
+			int j=i-1;
+			while(j>=0 && array[j].compareTo(key)>0)
+			{
+				array[j+1]=array[j];
+				j=j-1;
+			}
+			array[j+1]=key;
+		}
+		
+		return array;
+	}
+	
+	public static int search(int low, int high)
+	{
+		int mid=low+(high-low)/2;
+		if(low<high)
+		{
+			System.out.println("Is your number in between "+low+" and "+mid);
+			if(Utility.retBoolean())
+			{
+				return search(low,mid);
+			}
+			else
+			{
+				return search(mid+1,high);
+			}
+		}
+		else
+		{
+			System.out.println("the number is "+low);
+			return low;
+		}
+		
+		
+	}
+	
+	
 	
 	
 }

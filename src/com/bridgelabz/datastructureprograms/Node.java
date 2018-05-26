@@ -3,15 +3,15 @@
  */
 package com.bridgelabz.datastructureprograms;
 
-public class Node
+public class Node<T>
 {
-	Object element;
-	Node next;
-	Node(Object element)
+	T element;
+	Node<T> next;
+	Node(T element)
 	{
 		this.element=element;
 	}
-	Node(Object element,Node next)
+	Node(T element,Node<T> next)
 	{
 		this.element=element;
 		this.next=next;
