@@ -19,12 +19,12 @@ public class MyLinkedList<T>
 	{
 		if(first==null)
 		{
-			first=new Node<T>((T)element);
+			first=new Node<T>(element);
 			last=first;
 			count++;
 			return;
 		}
-		last.next=new Node<T>((T)element);
+		last.next=new Node<T>(element);
 		last=last.next;
 		count++;
 		return;
@@ -82,11 +82,13 @@ public class MyLinkedList<T>
 	public void display()
 	{
 		Node<T> temp=first;
+		System.out.print("[");
 		for(int i=0;i<size();i++)
 		{
-			System.out.println(temp.element);
+			System.out.print(temp.element+",");
 			temp=temp.next;
 		}
+		System.out.print("]");
 	}
 	
 	/**

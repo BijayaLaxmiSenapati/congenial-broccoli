@@ -19,16 +19,25 @@ public class OrderedList
 		{
 			array[i]=Integer.parseInt(numArray[i]);
 		}
-		/*for(int i=0;i<array.length;i++) {
-			System.out.println(array[i]);
-		}*/
-		//MyLinkedList<Integer> mylinkedlist=new MyLinkedList<Integer>();
 		mylinkedlist.add(array[0]);
-		mylinkedlist.display();
 		for(int i=1;i<array.length;i++)
 		{
 			checkAndAdd(array[i]);
 		}
+		System.out.println("linked list elements are:");
+		mylinkedlist.display();
+		System.out.println("enter which number you want to search");
+		Integer searchNumber=Utility.retInt();
+		if(mylinkedlist.search(searchNumber))
+		{
+			int deleteIndexElement=mylinkedlist.index(searchNumber);
+			mylinkedlist.pop(deleteIndexElement);
+		}
+		else
+		{
+			checkAndAdd(searchNumber);
+		}
+		System.out.println("linked list elements are:");
 		mylinkedlist.display();
 	}
 
@@ -40,6 +49,7 @@ public class OrderedList
 			if(element.compareTo(mylinkedlist.get(i))>0)
 			{
 				count++;
+				continue;
 			}
 			mylinkedlist.insert(count, element);
 			return;
