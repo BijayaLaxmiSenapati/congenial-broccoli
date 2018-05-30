@@ -1,5 +1,5 @@
 /**
- * 
+ * ..
  */
 package com.bridgelabz.algorithmprograms;
 
@@ -7,7 +7,6 @@ public class MaxOfThree {
 
 	public static void main(String[] args)
 	{
-		// TODO Auto-generated method stub
 		Integer[] array={5,3,7,2,6,8};
 		UtilityForSearchingAndSorting.bubbleSort(array);
 		for(int i=0;i<array.length;i++)

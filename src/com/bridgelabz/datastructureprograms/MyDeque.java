@@ -1,5 +1,5 @@
 /**
- * 
+ * ..
  */
 package com.bridgelabz.datastructureprograms;
 
@@ -12,32 +12,54 @@ public class MyDeque<T>
 	}
 	public void addFront(T element)
 	{
-		mylinkedlist.insert(0, element);
+		if(mylinkedlist.size()==0)
+		{
+			mylinkedlist.add(element);
+		}
+		else
+			mylinkedlist.insert(0, element);
 	}
 	public void addRear(T element)
 	{
-		int index=mylinkedlist.size()-1;
-		mylinkedlist.insert(index, element);
+		if(mylinkedlist.size()==0)
+		{
+			mylinkedlist.add(element);
+		}
+		else
+		{
+			int index=mylinkedlist.size()-1;
+			mylinkedlist.insert(index, element);
+		}
 	}
 	public T removeFront()
 	{
+		T element=null;
 		if(mylinkedlist.isEmpty())
 		{
 			System.out.println("MyDeque is already empty");
 		}
-		T element=mylinkedlist.get(0);
-		mylinkedlist.remove(0);
+		else
+		{
+			element=mylinkedlist.get(0);
+			mylinkedlist.remove(0);
+			//return element;
+		}
 		return element;
 	}
 	public T removeRear()
 	{
+		T element=null;
 		if(mylinkedlist.isEmpty())
 		{
 			System.out.println("MyDeque is already empty");
 		}
-		int index=mylinkedlist.size()-1;
-		T element=mylinkedlist.get(index);
-		mylinkedlist.remove(index);
+		else
+		{
+			int index=mylinkedlist.size()-1;
+			element=mylinkedlist.get(index);
+			mylinkedlist.remove(index);
+			//return element;
+		}
 		return element;
 	}
 	public boolean isEmpty()

@@ -1,5 +1,5 @@
 /**
- * purpose: Prints prime factors of a number
+ * purpose: Prints prime factors of a number.
  * @author: BijayaLaxmi
  * @version: 1.0
  * @since:17/05/2018

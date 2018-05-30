@@ -1,7 +1,7 @@
 /**
  * purpose: Program to calculate the minimum number
 of Notes as well as the Notes to be returned by the Vending Machine as a
-Change
+Change.
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018
  * @version:1.0

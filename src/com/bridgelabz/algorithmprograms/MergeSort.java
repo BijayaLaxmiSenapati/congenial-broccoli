@@ -1,5 +1,5 @@
 /**
- * purpose:Merge sort
+ * purpose:Merge sort.
  * @author:Bijaya Laxmi SEnapati
  * @since:24/05/2018
  * @version:1.8

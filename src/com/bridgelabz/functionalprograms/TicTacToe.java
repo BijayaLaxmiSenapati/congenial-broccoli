@@ -1,5 +1,5 @@
 /**
- * purpose: allows a user and the system to play a cross game/Tic-Tac-Toe game
+ * purpose: allows a user and the system to play a cross game/Tic-Tac-Toe game.
  * @author:Bijaya Laxmi
  * @version:1.0
  * @since:18/05.2018

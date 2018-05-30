@@ -1,5 +1,5 @@
 /**
- * purpose: prints all the prime numbers between the given range
+ * purpose: prints all the prime numbers between the given range.
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018
  * @version:1.0

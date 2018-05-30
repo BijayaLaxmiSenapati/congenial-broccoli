@@ -1,5 +1,5 @@
 /**
- * purpose: converts a given decimal number to its binary
+ * purpose: converts a given decimal number to its binary.
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018
  * @version:1.0

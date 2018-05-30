@@ -1,7 +1,7 @@
 /**
  * purpose: takes a command­line argument N, asks you to think of a number
 between 0 and N­1, where N = 2^n, and always guesses the answer with n
-questions.
+questions..
 b. I/P ­> the Number N and then recursively ask true/false if the number is between a high and low value
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018

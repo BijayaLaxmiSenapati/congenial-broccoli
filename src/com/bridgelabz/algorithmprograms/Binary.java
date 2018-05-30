@@ -1,6 +1,6 @@
 /**
  * purpose:It reads an integer as an input, convert to binary using 
- * decimalToBinary method and swap nibbles and then finds the new number
+ * decimalToBinary method and swap nibbles and then finds the new number.
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018
  * @version:

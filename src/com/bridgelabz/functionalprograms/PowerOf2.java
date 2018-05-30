@@ -1,13 +1,12 @@
 
-/******************************************************************************
-   
+/**
  *  Purpose: Prints a table of the power of 2.it prints upto the nth power
  *
  *  @author  BijayaLaxmi
  *  @version 1.0
  *  @since   17-05-2018
  *
- ******************************************************************************/
+ */
 
 package com.bridgelabz.functionalprograms;
 

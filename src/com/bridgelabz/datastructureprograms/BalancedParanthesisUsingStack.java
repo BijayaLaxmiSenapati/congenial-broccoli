@@ -1,5 +1,5 @@
 /**
- * 
+ * ..
  */
 package com.bridgelabz.datastructureprograms;
 
@@ -7,7 +7,7 @@ import com.bridgelabz.utility.Utility;
 
 public class BalancedParanthesisUsingStack
 {
-	MyStack<Comparable> mystack=new MyStack<Comparable>();
+	MyStack<Character> mystack=new MyStack<Character>();
 	public static void main(String[] args)
 	{
 		System.out.println("enter a arithmatic expression ");
@@ -36,7 +36,7 @@ public class BalancedParanthesisUsingStack
 			}
 			else
 			{
-				if(mystack.isEmpty())
+				if(mystack.isEmpty())//({})]
 				{
 					return false;
 				}

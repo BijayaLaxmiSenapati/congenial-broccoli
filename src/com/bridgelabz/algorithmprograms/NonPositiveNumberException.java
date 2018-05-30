@@ -1,5 +1,5 @@
 /**
- * purpose:gives a exception messege if a user input is negative
+ * purpose:gives a exception messege if a user input is negative.
  */
 package com.bridgelabz.algorithmprograms;
 

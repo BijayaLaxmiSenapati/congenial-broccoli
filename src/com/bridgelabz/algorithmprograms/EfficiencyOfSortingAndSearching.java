@@ -1,5 +1,5 @@
 /**
- * 
+ * ...
  */
 package com.bridgelabz.algorithmprograms;
 
@@ -16,7 +16,7 @@ public class EfficiencyOfSortingAndSearching
 	 static double ELAPSE_TIME;
 	 public static void main(String[] args) 
 	 {
-		 	Set elapsedTimes=new HashSet();
+		 	Set<Double> elapsedTimes=new HashSet<Double>();
 	        System.out.println("Enter size of array:");
 	        int size=Utility.retInt();
 	        System.out.println("What type of elements you want to insert : \n 1. Integer \t 2.String");

@@ -1,19 +1,12 @@
 /**
- * 
+ * ..
  */
 package com.bridgelabz.functionalprograms;
 
 import com.bridgelabz.utility.Utility;
 
-/**
- * @author adminstrato
- *
- */
 public class WindChill {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		double tempratureInfahrenheit=Double.parseDouble(args[0]);
 		System.out.println("temprature given by the user is "+tempratureInfahrenheit+" fahrenheit");

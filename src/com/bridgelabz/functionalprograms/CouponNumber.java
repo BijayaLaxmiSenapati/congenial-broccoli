@@ -1,5 +1,5 @@
 /** 
- * purpose: prints the total random number needed to get the given coupon number
+ * purpose: prints the total random number needed to get the given coupon number.
  * @author: BijayaLaxmi
  * @version: 1.0
  * @since:17/05/2018

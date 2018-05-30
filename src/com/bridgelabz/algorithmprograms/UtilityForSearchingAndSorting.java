@@ -1,5 +1,8 @@
 /**
- * 
+ * purpose: calculates and display the time taken by all the searching and sorting algorithms.
+ * @author: Bijaya Laxmi Senapati
+ * @since:24/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.algorithmprograms;
 

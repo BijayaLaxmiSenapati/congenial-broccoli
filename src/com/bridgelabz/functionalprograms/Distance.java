@@ -1,5 +1,5 @@
 /**
- * purpose:Prints euclidean distance from the point (x,y) to origin (0,0)
+ * purpose:Prints euclidean distance from the point (x,y) to origin (0,0).
  * @author:Bijaya Laxmi
  * @version:1.0
  * @since:18/05/2018

@@ -1,5 +1,5 @@
 /**
- * purpose:search a word from the file using binary search
+ * purpose:search a word from the file using binary search.
  * @author:Bijaya Laxmi Senapati
  * @since:22/05/2018
  * @version:1.0

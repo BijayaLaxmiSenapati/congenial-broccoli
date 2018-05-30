@@ -1,5 +1,5 @@
 /**
- * purpose: prints all the pair of prime numbers which are anagram
+ * purpose: prints all the pair of prime numbers which are anagram.
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018
  * @version:1.0
@@ -14,13 +14,10 @@ import com.bridgelabz.utility.Utility;
 
 public class PrimeAnagramCheck {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args)
 	{
 		List<Integer> list=new ArrayList<>();
-		Set distinctElement=new TreeSet();
+		Set<Integer> distinctElement=new TreeSet<Integer>();
 		for(int i=0;i<=1000;i++)
 		{
 			if(Utility.isPrime(i))

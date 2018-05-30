@@ -1,5 +1,5 @@
 /**
- * purpose:search a word from a comma separated file
+ * purpose:search a word from a comma separated file.
  * @author:Bijaya Laxmi Senapati
  * @since:22/05/2018
  * @version:1.0

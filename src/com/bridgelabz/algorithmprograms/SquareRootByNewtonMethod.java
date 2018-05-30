@@ -1,5 +1,5 @@
 /**
- * purpose: evaluates square root of a given number using newtons method
+ * purpose: evaluates square root of a given number using newtons method.
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018
  * @version:1.0

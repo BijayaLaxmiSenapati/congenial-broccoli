@@ -1,6 +1,6 @@
 /**
  * 
- * purpose: Calculates percentage of head and tail after flipping a coin n number of times
+ * purpose: Calculates percentage of head and tail after flipping a coin n number of times.
  * @author: BijayaLaxmi
  * @version: 1.0
  * @since:17/05/2018

@@ -1,5 +1,5 @@
 /**
- * purpose: gives day of the week for the given date
+ * purpose: gives day of the week for the given date.
  * @author:Bijaya Laxmi Senapati
  * @since:24/05/2018
  * @version:1.0
@@ -12,13 +12,17 @@ public class DayOfWeek {
 
 	public static void main(String[] args)
 	{
-		int day=Integer.parseInt(args[0]);
+		int date=Integer.parseInt(args[0]);
 		int month=Integer.parseInt(args[1]);
 		int year=Integer.parseInt(args[2]);
 		String[] week= {"Sunday","Monday","Tuesday","Wednesday","Thurseday","Friday","Saturday"};
-		int result=Utility.dayOfWeek(day, month, year);
-		System.out.println("the given date is "+week[result]);
-
+		if(Utility.isValidDate(date,month,year))
+		{
+			int result=Utility.dayOfWeek(date, month, year);
+			System.out.println("the given date is "+week[result]);
+		}
+		else
+			System.out.println("entered date is invalid");
 	}
 
 }

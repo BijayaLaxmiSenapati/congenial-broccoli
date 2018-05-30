@@ -1,5 +1,5 @@
 /**
- * 
+ * ..
  */
 package com.bridgelabz.datastructureprograms;
 
@@ -8,12 +8,15 @@ public class MyLinkedList<T>
 	private Node<T> first;
 	private Node<T> last;
 	private int count=0;
+	/**
+	 * default constructor to create object of MyLinkedList class
+	 */
 	public MyLinkedList()
 	{
 		
 	}
 	/**
-	 * @param element
+	 * @param element element which will be added to the linked list
 	 */
 	public void add(T element)
 	{
@@ -32,7 +35,7 @@ public class MyLinkedList<T>
 	
 	
 	/**
-	 * @return
+	 * @return integer ,the size of the linked list
 	 */
 	public int size()
 	{
@@ -40,7 +43,7 @@ public class MyLinkedList<T>
 	}
 	
 	/**
-	 * @return
+	 * @return returns true if the linked list is empty and false if not.
 	 */
 	public boolean isEmpty()
 	{
@@ -51,8 +54,8 @@ public class MyLinkedList<T>
 	
 	
 	/**
-	 * @param position
-	 * @param item
+	 * @param index the index where the given element will be inserted
+	 * @param element the element to be inserted
 	 */
 	public void insert(int index, T element)
 	{
@@ -77,7 +80,7 @@ public class MyLinkedList<T>
 	
 	
 	/**
-	 * 
+	 * display the elements of the linked list
 	 */
 	public void display()
 	{
@@ -85,15 +88,15 @@ public class MyLinkedList<T>
 		System.out.print("[");
 		for(int i=0;i<size();i++)
 		{
-			System.out.print(temp.element+",");
+			System.out.print(temp.element+" ");
 			temp=temp.next;
 		}
 		System.out.print("]");
 	}
 	
 	/**
-	 * @param index
-	 * @return
+	 * @param index the index from which the index element will be returned
+	 * @return returns the element at the given index
 	 */
 	public T get(int index)
 	{
@@ -111,8 +114,8 @@ public class MyLinkedList<T>
 	
 	
 	/**
-	 * @param searchElement
-	 * @return
+	 * @param searchElement the element to be searched from the linked list
+	 * @return returns true if the linked list is empty and false if not
 	 */
 	public boolean search(T searchElement)
 	{
@@ -129,6 +132,10 @@ public class MyLinkedList<T>
 	}
 	
 	
+	/**
+	 * @param element the element whose position/index in the linked list is required
+	 * @return returns the index of the given element
+	 */
 	public int index(T element)
 	{
 		Node<T> temp=first;
@@ -143,6 +150,9 @@ public class MyLinkedList<T>
 		return -1;
 	}
 	
+	/**
+	 * @param element the element which will be removed from the linked list
+	 */
 	public void remove(T element)
 	{
 		Node<T> temp=first;
@@ -171,6 +181,9 @@ public class MyLinkedList<T>
 		}
 	}
 	
+	/**
+	 * @param index the position/index in the linked list which node will be deleted
+	 */
 	public void remove(int index)
 	{
 		
@@ -194,7 +207,10 @@ public class MyLinkedList<T>
 	}
 	
 	
-	public Object pop()
+	/**
+	 * @return removes and returns last element of the linked list
+	 */
+	public T pop()
 	{
 		Node<T> temp=first;
 		Node<T> previous=null;
@@ -203,7 +219,7 @@ public class MyLinkedList<T>
 			previous=temp;
 			temp=temp.next;
 		}
-		Object lastElement=temp.element;
+		T lastElement=temp.element;
 		previous.next=null;
 		count--;
 		return lastElement;
@@ -211,7 +227,11 @@ public class MyLinkedList<T>
 	}
 	
 	
-	public Object pop(int index)
+	/**
+	 * @param index the index whose element will be deleted and and will be returned
+	 * @return
+	 */
+	public T pop(int index)
 	{
 		if(index>=size())
 		{
@@ -219,7 +239,7 @@ public class MyLinkedList<T>
 		}
 		if(index==0)
 		{
-			Object firstElement=first.element;
+			T firstElement=first.element;
 			first=first.next;
 			count--;
 			return firstElement;
@@ -229,7 +249,7 @@ public class MyLinkedList<T>
 		{
 			temp=temp.next;
 		}
-		Object elementAtIndex=temp.next.element;
+		T elementAtIndex=temp.next.element;
 		temp.next=temp.next.next;
 		count--;
 		return elementAtIndex;

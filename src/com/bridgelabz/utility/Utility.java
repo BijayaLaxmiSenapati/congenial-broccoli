@@ -1,8 +1,10 @@
 package com.bridgelabz.utility;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,6 +12,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+
+import com.bridgelabz.datastructureprograms.MyDeque;
 
 public class Utility {
 
@@ -629,7 +633,7 @@ public class Utility {
 		{
 			return false;
 		}
-		for(int i=2;i<number/2;i++)
+		for(int i=2;i<=number/2;i++)
 		{
 			if((number%i)==0)
 			{
@@ -798,6 +802,29 @@ public class Utility {
 			System.out.println("Error in reading your file '"+fileName+"'");
 		}
 		return readedFile;
+	}
+	
+	/**
+	 * @param fileName
+	 * @param content
+	 */
+	public void writeAllToFile(String fileName, String content)
+	{
+		try
+		{
+			FileWriter filewriter=new FileWriter(fileName);
+			BufferedWriter bufferedwriter=new BufferedWriter(filewriter);
+			bufferedwriter.write(content);
+			bufferedwriter.close();
+		}
+		catch(FileNotFoundException fileNotFoundException)
+		{
+			System.out.println("your file is not found in the location '"+fileName+"'");
+		}
+		catch(IOException ioException)
+		{
+			System.out.println("Error in reading your file '"+fileName+"'");
+		}
 	}
 
 
@@ -1016,8 +1043,8 @@ public class Utility {
 	
 	
 	/**
-	 * @param array 
-	 * @return
+	 * @param array is the generic type array which will be sorted
+	 * @return array which is a sorted array
 	 */
 	public static <E extends Comparable> E[] insertionSort(E[] array)
 	{
@@ -1038,6 +1065,11 @@ public class Utility {
 		return array;
 	}
 	
+	/**
+	 * @param low the lowest value from which search operation starts each time when the method is called
+	 * @param high the highest value upto which search operation will continue when the method is called
+	 * @return the (index of the element)/index which the user thought of
+	 */
 	public static int search(int low, int high)
 	{
 		int mid=low+(high-low)/2;
@@ -1060,6 +1092,85 @@ public class Utility {
 		}
 		
 		
+	}
+
+
+	/**
+	 * @param date is the given date
+	 * @param month is the given month number
+	 * @param year is the given year
+	 * @return returns true if all the arguments are valid and returns false is any argument is invalid
+	 */
+	public static boolean isValidDate(int date, int month, int year)
+	{
+		if(date<1 || date >31)
+		{
+			return false;
+		}
+		if(month<1 || month>12)
+		{
+			return false;
+		}
+		if(month==2)
+		{
+			if(Utility.checkLeapYear(year).equals("Leap Year"))
+				return (date<=29);
+			else
+				return (date<=28);
+		}
+		if(month==4 || month==6|| month==9 || month==11)
+		{
+			return (date<=30);
+		}
+		return true;
+	}
+
+
+	/**
+	 * @param string the string which will be checked for pallindrome nature using deque
+	 * @return true if the given string is pallindrome and returns false if not
+	 */
+	public static boolean checkPallindrome(String string) 
+	{
+		MyDeque<Character> mydeque=new MyDeque<Character>();
+		for(int i=0;i<string.length();i++)
+		{
+			mydeque.addFront(string.charAt(i));
+		}
+		int iterationSize=mydeque.size()/2;
+		for(int i=0;i<iterationSize;i++)
+		{
+			if(mydeque.removeFront().equals(mydeque.removeRear()))
+				continue;
+			else
+				return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * @param number
+	 * @return
+	 */
+	public static int factorial(int number)
+	{
+		int fact=1;
+		for(int i=1;i<=number;i++)
+		{
+			fact=fact*i;
+		}
+		return fact;
+	}
+
+
+	/**
+	 * @param nodes
+	 */
+	public static int numberOfBinaryTree(int nodes)
+	{
+		int output=0;
+		output=factorial(2*nodes)/(factorial(nodes+1)*factorial(nodes));
+		return output;
 	}
 	
 	
