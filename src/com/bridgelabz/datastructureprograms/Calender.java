@@ -13,7 +13,7 @@ public class Calender
 		int month=Integer.parseInt(args[0]);
 		int year=Integer.parseInt(args[1]);
 		String[] daysArray= {"S   ","M   ","T   ","W   ","TH  ","F   ","S   "};
-		//String[] months= {" ","Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"};
+		String[] months= {" ","Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"};
 		Integer[] daysInMonths= {0,31,28,31,30,31,30,31,31,30,31,30,31};
 		if(Utility.checkLeapYear(year).equals("Leap Year"))
 		{
@@ -31,6 +31,7 @@ public class Calender
 		{
 			int day=Utility.dayOfWeek(date, month, year);
 			int tillDate=daysInMonths[month];
+			System.out.println("   "+months[month]+" "+year);
 			for(int i=0;i<daysArray.length;i++)
 			{
 				System.out.print(daysArray[i]);

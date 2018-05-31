@@ -85,13 +85,13 @@ public class MyLinkedList<T>
 	public void display()
 	{
 		Node<T> temp=first;
-		System.out.print("[");
+		//System.out.print("[");
 		for(int i=0;i<size();i++)
 		{
 			System.out.print(temp.element+" ");
 			temp=temp.next;
 		}
-		System.out.print("]");
+		//System.out.print("]");
 	}
 	
 	/**

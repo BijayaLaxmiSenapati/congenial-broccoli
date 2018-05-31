@@ -18,7 +18,7 @@ public class MyQueue<T>
 	{
 		if(mylinkedlist.isEmpty())
 		{
-			System.out.println("MyQueue is already empty");
+			System.out.println("Queue is already empty");
 		}
 		T elementToBeDeleted=mylinkedlist.get(0);
 		mylinkedlist.remove(0);

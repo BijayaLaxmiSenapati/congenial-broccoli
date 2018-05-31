@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.bridgelabz.datastructureprograms.MyDeque;
 
@@ -1171,6 +1173,20 @@ public class Utility {
 		int output=0;
 		output=factorial(2*nodes)/(factorial(nodes+1)*factorial(nodes));
 		return output;
+	}
+
+
+	/**
+	 * @param template
+	 * @param regexName
+	 * @param firstName
+	 * @return
+	 */
+	public static String replaceOperation(String template, String regexName, String firstName)
+	{
+		Pattern pattern=Pattern.compile(regexName);
+		Matcher matcher=pattern.matcher(template);
+		return matcher.replaceAll(firstName);
 	}
 	
 	

@@ -13,8 +13,13 @@ public class CalenderUsingQueue
 		int date=1;
 		int month=Integer.parseInt(args[0]);
 		int year=Integer.parseInt(args[1]);
-		String[] daysArray= {"S   ","M   ","T   ","W   ","TH  ","F   ","S   "};
-		//String[] months= {" ","Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"};
+		String[] daysArray= {"S ","M ","T ","W ","TH","F ","SAT  "};
+		MyQueue<String> queueDays=new MyQueue<>();
+		for(int i=0;i<daysArray.length;i++)
+		{
+			queueDays.enqueue(daysArray[i]);
+		}
+		String[] months= {" ","January","February","March","April","May","June","July","August","September","October","November","December"};
 		Integer[] daysInMonths= {0,31,28,31,30,31,30,31,31,30,31,30,31};
 		if(Utility.checkLeapYear(year).equals("Leap Year"))
 		{
@@ -39,10 +44,12 @@ public class CalenderUsingQueue
 		{
 			int day=Utility.dayOfWeek(date, month, year);
 			int tillDate=daysInMonths[month];
-			for(int i=0;i<daysArray.length;i++)
+			/*for(int i=0;i<daysArray.length;i++)
 			{
 				System.out.print(daysArray[i]);
-			}
+			}*/
+			System.out.println("    "+months[month]+" "+year);
+			queueDays.display();
 			System.out.println();
 			System.out.println();
 			int count=1;
@@ -82,9 +89,9 @@ public class CalenderUsingQueue
 			}
 			for(int i=0;i<calender.length;i++)
 			{
-				for(int k=0;j<calender[i].length;j++)
+				for( j=0;j<calender[i].length;j++)
 				{
-					System.out.println(calender[i][j].dequeue());
+					System.out.print(calender[i][j].dequeue());
 				}
 				System.out.println();
 			}
