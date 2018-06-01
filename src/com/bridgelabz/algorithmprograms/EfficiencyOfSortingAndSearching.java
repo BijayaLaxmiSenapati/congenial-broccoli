@@ -33,7 +33,7 @@ public class EfficiencyOfSortingAndSearching
 	            }
 	            System.out.println("*****Bubble sort****");
 	            START =System.nanoTime();
-	            Utility.intBubbleSort(array);
+	            Utility.bubbleSort(array);
 	            System.out.println("sorted array is ");
 	            Utility.print1DArrayElements(array);
 	            STOP =System.nanoTime();
@@ -42,7 +42,7 @@ public class EfficiencyOfSortingAndSearching
 	            System.out.println("Elapse time for bubble sort = "+ELAPSE_TIME+" s \n");
 	            System.out.println("*****Insertion sort****");
 	            START =System.nanoTime();
-	            Utility.intInsertionSort(array);
+	            Utility.insertionSort(array);
 	            System.out.println("sorted array is ");
 	            Utility.print1DArrayElements(array);
 	            STOP =System.nanoTime();
@@ -69,7 +69,7 @@ public class EfficiencyOfSortingAndSearching
 	            }
 	            System.out.println("*****Bubble sort****");
 	            START =System.nanoTime();
-	            Utility.stringBubbleSort(array1);
+	            Utility.bubbleSort(array1);
 	            System.out.println("sorted array is ");
 	            Utility.print1DArrayElements(array1);
 	            STOP =System.nanoTime();
@@ -78,7 +78,7 @@ public class EfficiencyOfSortingAndSearching
 	            System.out.println("Elapse time for bubble sort = "+ELAPSE_TIME+" s \n");
 	            System.out.println("*****Insertion sort****");
 	            START =System.nanoTime();
-	            Utility.stringInsertionSort(array1);
+	            Utility.insertionSort(array1);
 	            System.out.println("sorted array is ");
 	            Utility.print1DArrayElements(array1);
 	            STOP =System.nanoTime();

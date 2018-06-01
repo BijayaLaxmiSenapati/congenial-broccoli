@@ -18,19 +18,19 @@ public class Anagram
 		System.out.println("enter the second string");
 		String string2=Utility.retNextLine();
 		string1=Utility.removeSapce(string1);
-		System.out.println(string1);
+		//System.out.println(string1);
 		string2=Utility.removeSapce(string2);
-		System.out.println(string2);
+		//System.out.println(string2);
 		if(string1.length()==string2.length())
 		{
 			string1=string1.toLowerCase();
-			System.out.println(string1);
+			//System.out.println(string1);
 			string2=string2.toLowerCase();
-			System.out.println(string2);
+			//System.out.println(string2);
 			string1=Utility.stringBubbleSortByLetter(string1);
-			System.out.println(string1);
+			//System.out.println(string1);
 			string2=Utility.stringBubbleSortByLetter(string2);
-			System.out.println(string2);
+			//System.out.println(string2);
 			for(int i=0;i<string1.length();i++)
 			{
 				if(string1.charAt(i)!=string2.charAt(i))

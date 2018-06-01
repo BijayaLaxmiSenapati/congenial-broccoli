@@ -761,16 +761,16 @@ public class Utility {
 	
 	public static String[] stringInsertionSort(String[] array)
 	{
-	      for (int i = 0; i < array.length; i++)
+	      for (int i = 1; i <= array.length-1; i++)
 	      {
-	    	  String key = array[i];
-	    	  int j = i - 1;
-	    	  while (j >= 0 && key.compareToIgnoreCase(array[j]) < 0)
+	    	  String value = array[i];
+	    	  int hole=i;
+	    	  while (hole > 0 && array[hole-1].compareToIgnoreCase(value) > 0)
 	    	  {
-	    		  array[j + 1] = array[j];
-	    		  j--;
+	    		  array[hole] = array[hole-1];
+	    		  hole=hole-1;
 	    	  }
-	    	  array[j + 1] = key;
+	    	  array[hole] = value;
 
 	      }
 	      return array;
@@ -1186,7 +1186,7 @@ public class Utility {
 	{
 		Pattern pattern=Pattern.compile(regexName);
 		Matcher matcher=pattern.matcher(template);
-		return matcher.replaceAll(firstName);
+		matcher.replaceAll(firstName);
 	}
 	
 	

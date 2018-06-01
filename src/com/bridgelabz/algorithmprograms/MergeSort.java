@@ -65,7 +65,7 @@ public class MergeSort
 		{
 			int mid=(left+(right-left))/2;
 			sort(array,left,mid);
-			sort(array,mid+1,right);
+			//sort(array,mid+1,right);
 			merge(array,left,mid,right);
 		}
 	}
