@@ -1,5 +1,11 @@
 /**
- * ..
+ * purpose:Read the Text from a file, split it into words and arrange it as Linked List.
+ *Take a user input to search a Word in the List. If the Word is not found then add it
+ *to the list, and if it found then remove the word from the List. In the end save the
+ *list into a file
+ *@author: Bijaya Laxmi Senapati
+ *@since: 25/05/2018
+ *@version:1.0
  */
 package com.bridgelabz.datastructureprograms;
 
@@ -22,7 +28,7 @@ public class OrderedList
 		mylinkedlist.add(array[0]);
 		for(int i=1;i<array.length;i++)
 		{
-			checkAndAdd(array[i]);
+			Utility.checkAndAdd(array[i],mylinkedlist);
 		}
 		System.out.println("linked list elements are:");
 		mylinkedlist.display();
@@ -35,26 +41,12 @@ public class OrderedList
 		}
 		else
 		{
-			checkAndAdd(searchNumber);
+			Utility.checkAndAdd(searchNumber,mylinkedlist);
 		}
 		System.out.println("linked list elements are:");
 		mylinkedlist.display();
 	}
-
-	private static void checkAndAdd(Integer element)
-	{
-		int count=0;
-		for(int i=0;i<mylinkedlist.size();i++)
-		{
-			if(element.compareTo(mylinkedlist.get(i))>0)
-			{
-				count++;
-				continue;
-			}
-			mylinkedlist.insert(count, element);
-			return;
-		}
-		mylinkedlist.add(element);
-	}
+	
+	
 
 }

@@ -16,6 +16,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.bridgelabz.datastructureprograms.MyDeque;
+import com.bridgelabz.datastructureprograms.MyLinkedList;
+import com.bridgelabz.datastructureprograms.MyStack;
 
 public class Utility {
 
@@ -1186,9 +1188,87 @@ public class Utility {
 	{
 		Pattern pattern=Pattern.compile(regexName);
 		Matcher matcher=pattern.matcher(template);
-		matcher.replaceAll(firstName);
+		return matcher.replaceAll(firstName);
 	}
 	
+	/**
+	 * @param expression the expression that is is to be checked for valid or invalid
+	 * @return returns true if the given expression is balanced according to paranthesis
+	 */
+	public boolean checkForValidExpression(String expression,MyStack<Character> mystack) 
+	{
+		char paranthesis;
+		for(int i=0;i<expression.length();i++)
+		{
+			paranthesis=expression.charAt(i);
+			if(paranthesis=='(' || paranthesis=='{' || paranthesis=='[')
+			{
+				mystack.push(paranthesis);
+			}
+			else
+			{
+				if(mystack.isEmpty())//({})]
+				{
+					return false;
+				}
+				else
+				{
+					switch (paranthesis)
+					{
+					case ')':
+						if(mystack.peek().equals('('))
+						{
+							mystack.pop();
+						}
+						else
+						{
+							return false;
+						}
+						break;
+					case '}':
+						if(mystack.peek().equals('{'))
+						{
+							mystack.pop();
+						}
+						else
+						{
+							return false;
+						}
+						break;
+					case ']':
+						if(mystack.peek().equals('['))
+						{
+							mystack.pop();
+						}
+						else
+						{
+							return false;
+						}
+						break;
+					}
+				}
+			
+			}
+		
+		}
+		return true;
+	}
+	
+	public static <T extends Comparable<T>> void checkAndAdd(T element,MyLinkedList<T> mylinkedlist)
+	{
+		int count=0;
+		for(int i=0;i<mylinkedlist.size();i++)
+		{
+			if(element.compareTo(mylinkedlist.get(i))>0)
+			{
+				count++;
+				continue;
+			}
+			mylinkedlist.insert(count, element);
+			return;
+		}
+		mylinkedlist.add(element);
+	}
 	
 	
 	
