@@ -18,7 +18,7 @@ public class GuessingANumber
 	{
 		
 		int n=Integer.parseInt(args[0]);
-		System.out.println("guess a number between 0 to "+(n-1));
+		System.out.println("is ");
 		int low=0;
 		int high=n-1;
 		int item=Utility.search(low,high);

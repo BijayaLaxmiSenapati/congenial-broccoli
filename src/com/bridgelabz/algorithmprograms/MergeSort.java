@@ -11,7 +11,7 @@ import com.bridgelabz.utility.Utility;
 
 public class MergeSort 
 {
-	void merge(Integer array[], int left, int mid, int right)
+	public static void merge(Integer array[], int left, int mid, int right)
 	{
 		int n1=mid-left+1;
 		int n2=right-mid;
@@ -59,7 +59,7 @@ public class MergeSort
 		}
 	}
 	
-	void sort(Integer[] array, int left, int right)
+	public static void sort(Integer[] array, int left, int right)
 	{
 		if(left<right)
 		{
@@ -82,8 +82,8 @@ public class MergeSort
 		}
 		System.out.println("given array:");
 		Utility.print1DArrayElements(array);
-		MergeSort object=new MergeSort();
-		object.sort(array, 0, array.length-1);
+		//MergeSort object=new MergeSort();
+		sort(array, 0, array.length-1);
 		System.out.println("sorted array:");
 		Utility.print1DArrayElements(array);
 		

@@ -1,5 +1,8 @@
 /**
- * ..
+ * purpose:calculates the total number of binary search tree which can be created from the given number of nodes
+ * @author: Bijaya Laxmi Senapati
+ * @since:27/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.datastructureprograms;
 

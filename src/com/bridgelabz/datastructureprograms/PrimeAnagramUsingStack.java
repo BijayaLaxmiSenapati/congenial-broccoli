@@ -1,5 +1,8 @@
 /**
- * ..
+ * adds the prime anagram numbers in the range 0-1000 and print the numbers in reverse order
+ * @author: Bijaya Laxmi Senapati
+ * @since:28/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.datastructureprograms;
 

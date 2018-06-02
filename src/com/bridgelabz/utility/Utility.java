@@ -16,6 +16,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.bridgelabz.datastructureprograms.MyDeque;
+import com.bridgelabz.datastructureprograms.MyLinkedList;
+import com.bridgelabz.datastructureprograms.MyQueue;
+import com.bridgelabz.datastructureprograms.MyStack;
 
 public class Utility {
 
@@ -669,7 +672,7 @@ public class Utility {
 	 * @param number2 the first number which will be checked with the second number for anagram
 	 * @return true if the given numbers are anagram
 	 */
-	public static boolean numAnagramCheck(int number1, int number2) 
+	public static <T> boolean numAnagramCheck(T number1, T number2) 
 	{
 		String tempNumber1=number1+"";
 		String tempNumber2=number2+"";
@@ -1186,10 +1189,179 @@ public class Utility {
 	{
 		Pattern pattern=Pattern.compile(regexName);
 		Matcher matcher=pattern.matcher(template);
-		matcher.replaceAll(firstName);
+		return matcher.replaceAll(firstName);
 	}
 	
+	public static <T extends Comparable<T>> void checkAndAddForOrderedList(T element,MyLinkedList<T> mylinkedlist)
+	{
+		int count=0;
+		for(int i=0;i<mylinkedlist.size();i++)
+		{
+			if(element.compareTo(mylinkedlist.get(i))>0)
+			{
+				count++;
+				continue;
+			}
+			mylinkedlist.insert(count, element);
+			return;
+		}
+		mylinkedlist.add(element);
+	}
+	
+	public boolean checkForValidExpression(String expression) 
+	{
+		MyStack<Character> mystack=new MyStack<Character>();
+		char paranthesis;
+		for(int i=0;i<expression.length();i++)
+		{
+			paranthesis=expression.charAt(i);
+			if(paranthesis=='(' || paranthesis=='{' || paranthesis=='[')
+			{
+				mystack.push(paranthesis);
+			}
+			else
+			{
+				if(mystack.isEmpty())//({})]
+				{
+					return false;
+				}
+				else
+				{
+					switch (paranthesis)
+					{
+					case ')':
+						if(mystack.peek().equals('('))
+						{
+							mystack.pop();
+						}
+						else
+						{
+							return false;
+						}
+						break;
+					case '}':
+						if(mystack.peek().equals('{'))
+						{
+							mystack.pop();
+						}
+						else
+						{
+							return false;
+						}
+						break;
+					case ']':
+						if(mystack.peek().equals('['))
+						{
+							mystack.pop();
+						}
+						else
+						{
+							return false;
+						}
+						break;
+					}
+				}
+			
+			}
+		
+		}
+		return true;
+	
+	}
+	
+	/*public static void primeAnagramAndNonAnagramIn2DArray(MyLinkedList mylinkedlist)
+	{
+		MyQueue<Integer> distinctAnagram=new MyQueue<Integer>();
+		MyQueue<Integer> distinctNonAnagram=new MyQueue<Integer>();
+		for(int i=0;i<mylinkedlist.size()-1;i++)
+		{
+			for(int j=i+1;j<mylinkedlist.size();j++)
+			{
+				if(Utility.numAnagramCheck(mylinkedlist.get(i),mylinkedlist.get(j)))
+				{
+
+					if(distinctAnagram.search(mylinkedlist.get(i))==false)
+					{
+						distinctAnagram.enqueue(mylinkedlist.get(i));
+					}
+					if(distinctAnagram.search(mylinkedlist.get(j))==false)
+					{
+						distinctAnagram.enqueue(mylinkedlist.get(j));
+					}
+				}
+				else
+				{
+					if(distinctNonAnagram.search(mylinkedlist.get(i))==false && distinctAnagram.search(mylinkedlist.get(i))==false)
+					{
+						distinctNonAnagram.enqueue(mylinkedlist.get(i));
+					}
+					if(distinctNonAnagram.search(mylinkedlist.get(j))==false && distinctAnagram.search(mylinkedlist.get(j))==false)
+					{
+						distinctNonAnagram.enqueue(mylinkedlist.get(j));
+					}
+				}
+			}
+		}
+		Integer[][] array=new Integer[2][distinctNonAnagram.size()];
+		int anagramQueueSize=distinctAnagram.size();
+		for(int i=0;i<anagramQueueSize;i++)
+		{
+			array[0][i]=distinctAnagram.dequeue();
+		}
+		int nonAnagramQueueSize=distinctNonAnagram.size();
+		for(int j=0;j<nonAnagramQueueSize;j++)
+		{
+			array[1][j]=distinctNonAnagram.dequeue();
+		}
+	}*/
 	
 	
 	
+	/**This function divide the array elements into single cell
+     */
+    public static void mergeSort(String[] array, int low, int high) {
+        int mid;
+        if (low < high) {
+            mid = (low + high) / 2;
+            mergeSort(array, low, mid);
+            mergeSort(array, mid + 1, high);
+            merge(array, low, mid, high);
+        }
+    }
+    /**This function merge the array after comparing the strings
+     */
+    public static void merge(String array[], int low, int mid, int high) {
+        int i, mid1, k = 0, low1;
+        //int lengthOfFirstSlave=mid-low+1;
+        //int lengthOfSecondSlave=high-mid;
+        String[] temp = new String[50];
+        low1 = low;
+        i = low;
+        mid1 = mid + 1;
+        while ((low1 <= mid) && (mid1 <= high)) {
+            if (array[low1].compareToIgnoreCase(array[mid1]) <= 0) {
+                temp[i] = array[low1];
+                low1++;
+            } else {
+                temp[i] = array[mid1];
+                mid1++;
+            }
+            i++;
+        }
+        if (low1 > mid) {
+            for (k = mid1; k <= high; k++) {
+                temp[i] = array[k];
+                i++;
+            }
+        } else {
+            for (k = low1; k <= mid; k++) {
+                temp[i] = array[k];
+                i++;
+            }
+        }
+        for (k = low; k <= high; k++) {
+            array[k] = temp[k];
+        }
+    }
+
 }

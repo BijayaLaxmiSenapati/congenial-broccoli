@@ -1,5 +1,8 @@
 /**
- * ..
+ * purpose:prints all the prime numbers between 0-1000 in 2D array range wise
+ * @author: Bijaya Laxmi Senapati
+ * @since:27/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.datastructureprograms;
 
@@ -25,12 +28,9 @@ public class PrimeNumbersIn2DArray
 		{
 			for(int i=m;i<=n;i++)
 			{
-				//System.out.println(Utility.isPrime(i));
 				if(Utility.isPrime(i))
 				{
-					//System.out.println(columnIndex);
 					array[rowIndex][columnIndex++]=i+"";
-					//System.out.println("array"+array[rowIndex][columnIndex++]);
 				}
 				
 			}
@@ -40,9 +40,6 @@ public class PrimeNumbersIn2DArray
 				n=n+100;
 				columnIndex=0;
 			}
-			//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-			//System.out.println("m="+m);
-			//System.out.println("n="+n);
 		}
 		Utility.print2DArrayElement(array);
 

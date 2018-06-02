@@ -141,7 +141,7 @@ public class MyLinkedList<T>
 		Node<T> temp=first;
 		for(int i=0;i<size();i++)
 		{
-			if(temp.element==element)
+			if(temp.element.equals(element))
 			{
 				return i;
 			}
@@ -229,7 +229,7 @@ public class MyLinkedList<T>
 	
 	/**
 	 * @param index the index whose element will be deleted and and will be returned
-	 * @return
+	 * @return returns the element which is deleted from the specified index
 	 */
 	public T pop(int index)
 	{

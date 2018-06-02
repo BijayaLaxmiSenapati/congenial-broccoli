@@ -1,5 +1,8 @@
 /**
- * ..
+ * purpose: prints calender of the given month and year using queue
+ * author: Bijaya Laxmi Senapati
+ * @since:27/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.datastructureprograms;
 

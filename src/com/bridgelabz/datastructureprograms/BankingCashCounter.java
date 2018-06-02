@@ -41,7 +41,7 @@ public class BankingCashCounter
 				if(withdrawAmount>initialAmount)
 				{
 					System.out.println("Sorry Insufficient balance ");
-					System.out.println("Would you withdraw an amount less than "+initialAmount);
+					System.out.println("Would you like to withdraw an amount less than "+initialAmount);
 					System.out.println("If yes then enter 1, if not enter 0");
 					if(Utility.retInt()==1)
 					{

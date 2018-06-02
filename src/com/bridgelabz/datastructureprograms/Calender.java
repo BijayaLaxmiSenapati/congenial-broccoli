@@ -1,5 +1,8 @@
 /**
- * ..
+ * purpose: prints the calender of the given month and year
+ * @author:Bijaya Laxmi Senapati
+ * @since:27/05/2018
+ * @version:1.0
  */
 package com.bridgelabz.datastructureprograms;
 import com.bridgelabz.utility.Utility;
