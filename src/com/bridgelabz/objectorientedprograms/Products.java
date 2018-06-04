@@ -1,10 +1,10 @@
 package com.bridgelabz.objectorientedprograms;
 
-public class PulseDetails 
+public class Products 
 {
 	private String name;
-	private double weight;
-	private double price;
+	private long weight;
+	private long price;
 	public String getName() 
 	{
 		return name;
@@ -13,19 +13,19 @@ public class PulseDetails
 	{
 		this.name = name;
 	}
-	public double getWeight() 
+	public long getWeight() 
 	{
 		return weight;
 	}
-	public void setWeight(double weight) 
+	public void setWeight(long weight) 
 	{
 		this.weight = weight;
 	}
-	public double getPrice() 
+	public long getPrice() 
 	{
 		return price;
 	}
-	public void setPrice(double price) 
+	public void setPrice(long price) 
 	{
 		this.price = price;
 	}

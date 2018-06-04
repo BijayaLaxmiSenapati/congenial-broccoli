@@ -2,6 +2,7 @@ package com.bridgelabz.utility;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,6 +15,12 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.impl.DefaultPrettyPrinter;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.ObjectWriter;
 
 import com.bridgelabz.datastructureprograms.MyDeque;
 import com.bridgelabz.datastructureprograms.MyLinkedList;
@@ -67,6 +74,15 @@ public class Utility {
 	 */
 	public static double retDouble() {
 		return scr.nextDouble();
+	}
+	
+	
+	
+	
+
+	public static long retLong() {
+		
+		return scr.nextLong();
 	}
 	
 	
@@ -1362,6 +1378,22 @@ public class Utility {
         for (k = low; k <= high; k++) {
             array[k] = temp[k];
         }
+    }
+    
+    
+    /**
+     * @param object
+     * @param filePath
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     */
+    public static <T> void convertJavaToJson(T object,String filePath) throws JsonGenerationException, JsonMappingException, IOException
+    {
+    	ObjectMapper mapper=new ObjectMapper();
+    	ObjectWriter writer=mapper.writer(new DefaultPrettyPrinter());
+    	writer.writeValue(new File(filePath),object);
+    	System.out.println("JSON written to the file");
     }
 
 }

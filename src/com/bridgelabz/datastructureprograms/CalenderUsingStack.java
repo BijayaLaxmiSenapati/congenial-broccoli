@@ -19,19 +19,19 @@ public class CalenderUsingStack
 	public static void main(String[] args) 
 	{
 		String[] months= {" ","January","February","March","April","May","June","July","August","September","October","November","December"};
-		MyStack<String> queueDays=new MyStack<>();
-		MyStack<String> copyqueueDays=new MyStack<>();
-		MyStack<Integer> queueDates=new MyStack<>();
-		MyStack<Integer> copyqueueDates=new MyStack<>();
+		MyStack<String> stackDays=new MyStack<>();
+		MyStack<String> copystackDays=new MyStack<>();
+		MyStack<Integer> stackDates=new MyStack<>();
+		MyStack<Integer> copystackDates=new MyStack<>();
 		MyStack<String> calender=new MyStack<>();
 		WeekDays weekdays=new WeekDays();
 		for(int i=0;i<weekdays.days.length;i++)
 		{
-			queueDays.push(weekdays.days[i]);
+			stackDays.push(weekdays.days[i]);
 		}
 		for(int i=0;i<weekdays.dates.length;i++)
 		{
-			queueDates.push(weekdays.dates[i]);
+			stackDates.push(weekdays.dates[i]);
 		}
 		int date=1;
 		int month=Integer.parseInt(args[0]);
@@ -48,7 +48,7 @@ public class CalenderUsingStack
 			int count=1;
 			int j=0;
 			System.out.println("    "+months[month]+" "+year);
-			queueDays.display();
+			stackDays.display();
 			System.out.println();
 			System.out.println();
 			for(int i=0;i<6;i++)

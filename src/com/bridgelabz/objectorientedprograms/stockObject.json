@@ -1,0 +1,15 @@
+{
+  "arraylist" : [ {
+    "stockName" : "bridgelabz",
+    "numberOfShares" : 3,
+    "sharePrice" : 10
+  }, {
+    "stockName" : "capgemini",
+    "numberOfShares" : 2,
+    "sharePrice" : 50
+  }, {
+    "stockName" : "cogni",
+    "numberOfShares" : 5,
+    "sharePrice" : 40
+  } ]
+}
