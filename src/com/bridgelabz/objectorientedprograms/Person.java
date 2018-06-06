@@ -3,13 +3,31 @@
  */
 package com.bridgelabz.objectorientedprograms;
 
-public class Person {
+public class Person 
+{
 	private String firstName;
-	public String lastName;
-	public String city;
-	public String state;
-	public String zip;
-	public String phoneNumber;
+	private String lastName;
+	private String address;
+	private String city;
+	private String state;
+	private String zip;
+	private String phoneNumber;
+	Person(String firstName, String lastName, String address, String city,String state,String zip,String phoneNumber)
+	{
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.address=address;
+		this.city=city;
+		this.state=state;
+		this.zip=zip;
+		this.phoneNumber=phoneNumber;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
