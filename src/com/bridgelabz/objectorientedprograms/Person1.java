@@ -1,9 +1,6 @@
-/**
- * 
- */
 package com.bridgelabz.objectorientedprograms;
 
-public class Person 
+public class Person1 
 {
 	private String firstName;
 	private String lastName;
@@ -12,11 +9,11 @@ public class Person
 	private String state;
 	private String zip;
 	private String phoneNumber;
-	Person()
+	Person1()
 	{
 		
 	}
-	Person(String firstName, String lastName, String address, String city,String state,String zip,String phoneNumber)
+	Person1(String firstName, String lastName, String address, String city,String state,String zip,String phoneNumber)
 	{
 		this.firstName=firstName;
 		this.lastName=lastName;

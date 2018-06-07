@@ -12,12 +12,13 @@ import org.json.simple.parser.ParseException;
 import com.bridgelabz.utility.Utility;
 public class AddressBookManager 
 {
-	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException, ParseException 
+	public static void main(String[] args)
 	{
-		Storage storage=new Storage();
-		AddressBook object=new AddressBook();
-		String filePath="/home/adminstrato/BijayaWorkSpace/Basic/src/com/bridgelabz/objectorientedprograms/adsBookPersonDetails.json";
-		object.addPerson();
+		//Storage storage=new Storage();
+		//AddressBook object=new AddressBook();
+		//AddressBookManager addressBookManager=new AddressBookManager();
+		//String filePath="/home/adminstrato/BijayaWorkSpace/Basic/src/com/bridgelabz/objectorientedprograms/adsBookPersonDetails.json";
+		AddressBookManager.showOptions();
 	}
 
 	/**
@@ -26,7 +27,7 @@ public class AddressBookManager
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-	static void showOptions() throws JsonGenerationException, JsonMappingException, IOException, ParseException 
+	static void showOptions()
 	{
 		System.out.println("What do you want?");
 		System.out.println("1. Add a person");
@@ -50,7 +51,7 @@ public class AddressBookManager
 	 * @throws IOException
 	 * @throws ParseException
 	 */
-	private static void doSelectedOption(int option) throws JsonGenerationException, JsonMappingException, IOException, ParseException 
+	private static void doSelectedOption(int option)
 	{
 		AddressBook obj=new AddressBook();
 		switch(option)
@@ -71,7 +72,7 @@ public class AddressBookManager
 			obj.removePerson(removeIndex);
 			break;
 		case 4:
-			obj.sortByName();
+			obj.sortByLastName();
 			break;
 		case 5:
 			obj.sortByZipCode();

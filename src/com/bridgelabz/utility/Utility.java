@@ -17,15 +17,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.impl.DefaultPrettyPrinter;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
+import org.codehaus.jackson.type.TypeReference;
 
 import com.bridgelabz.datastructureprograms.MyDeque;
 import com.bridgelabz.datastructureprograms.MyLinkedList;
 import com.bridgelabz.datastructureprograms.MyQueue;
 import com.bridgelabz.datastructureprograms.MyStack;
+import com.bridgelabz.objectorientedprograms.Person;
 
 public class Utility {
 
@@ -1388,12 +1391,47 @@ public class Utility {
      * @throws JsonMappingException
      * @throws IOException
      */
-    public static <T> void convertJavaToJson(T object,String filePath) throws JsonGenerationException, JsonMappingException, IOException
+    public static <T> void convertJavaToJson(T object,String filePath)
     {
     	ObjectMapper mapper=new ObjectMapper();
     	ObjectWriter writer=mapper.writer(new DefaultPrettyPrinter());
-    	writer.writeValue(new File(filePath),object);
+    	try 
+    	{
+			writer.writeValue(new File(filePath),object);
+		}
+    	catch (JsonGenerationException e)
+    	{
+			
+			e.printStackTrace();
+		} 
+    	catch (JsonMappingException e) 
+    	{
+			
+			e.printStackTrace();
+		} 
+    	catch (IOException e) 
+    	{
+			
+			e.printStackTrace();
+		}
     	System.out.println("JSON written to the file");
+    }
+    
+    //only to convert the files
+    public static ArrayList<String> convertJsonToList(String filePath)
+    {
+    	ArrayList<String> files = new ArrayList<>();
+    	ObjectMapper mapper=new ObjectMapper();
+		try 
+		{
+			files=mapper.readValue(new File(filePath), new TypeReference<ArrayList<Person>>() {});
+		} 
+		catch (IOException e) 
+		{
+			System.out.println("Address book is empty... first add some persons data");
+			//e.printStackTrace();
+		}
+		return files;
     }
 
 }

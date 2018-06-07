@@ -8,12 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -21,42 +19,82 @@ import org.json.simple.parser.ParseException;
 
 import com.bridgelabz.utility.Utility;
 
-public class AddressBook 
+public class AddressBookManager1 
 {
-	String fileLocation="/home/adminstrato/BijayaWorkSpace/Basic/src/com/bridgelabz/objectorientedprograms/";
-	private static ArrayList<Person> persons=new ArrayList<>();
-	ArrayList<String> addressBookList=new ArrayList();                                                                             
+	List<String> listOfAddressBook;
 	
-	public ArrayList<Person> getBook() {
-		return persons;
-	}
-
-	public void setBook(ArrayList<Person> book) {
-		this.persons = book;
-	}
-	
-	//static Storage storage=new Storage();
-	static String filePath="/home/adminstrato/BijayaWorkSpace/Basic/src/com/bridgelabz/objectorientedprograms/adsBookPersonDetails.json";
-	static AddressBookManager addressBookManager=new AddressBookManager();
-	
-	
-	AddressBook()
+	public AddressBookManager1(String fileLocation) 
 	{
+		if(listOfAddressBook == null) {
 			
-			ObjectMapper mapper=new ObjectMapper();
-			try 
-			{
-				persons=mapper.readValue(new File(filePath), new TypeReference<ArrayList<Person>>() {});
-			} 
-			catch (IOException e) 
-			{
-				System.out.println("Address book is empty... first add some persons data");
-				//e.printStackTrace();
-			}
+				listOfAddressBook = Utility.convertJsonToList(fileLocation);
+			
 		}
+		else {
+			System.out.println("No Address Book created");
+			listOfAddressBook = new ArrayList<>();
+		}
+	}
 	
-	
+	static void showOptions()
+	{
+		System.out.println("What do you want?");
+		System.out.println("1. Add a person");
+		System.out.println("2. edit a persons details");
+		System.out.println("3. delete a persons details");
+		System.out.println("4. Sort entries by name");
+		System.out.println("5. sort entries by zip");
+		System.out.println("6. print entries");
+		System.out.println("7. create a new address book");
+		//System.out.println("8. Open existing address book");
+		System.out.println("8. Quit program");
+		System.out.println("select one option");
+		int option=Utility.retInt();
+		doSelectedOption(option);
+	}
 
+	
+	private static void doSelectedOption(int option)
+	{
+		AddressBook obj=new AddressBook();
+		switch(option)
+		{
+		case 1:
+			obj.addPerson();
+			break;
+		case 2:
+			obj.printEntries();
+			System.out.println("enter index of the person whose details you want to edit");
+			int index=Utility.retInt();
+			obj.editPerson(index);
+			break;
+		case 3:
+			obj.printEntries();
+			System.out.println("enter index of the person whose details you want to delete");
+			int removeIndex=Utility.retInt();
+			obj.removePerson(removeIndex);
+			break;
+		case 4:
+			obj.sortByLastName();
+			break;
+		case 5:
+			obj.sortByZipCode();
+			break;
+		case 6:
+			obj.printEntries();
+			break;
+		case 7:
+			obj.createNewAddressBook();
+			break;
+		case 8:
+			obj.quitProgram();
+			break;
+		default:
+			
+		}
+		
+	}
+	
 	public void addPerson()
 	{
 		String firstName="";
@@ -87,30 +125,8 @@ public class AddressBook
 		addressBookManager.showOptions();
 	}
 
-	/*public void printEntries() //by arraylist
-	{
-		for(int i=0;i<storage.getBook().size();i++)
-		{
-			System.out.println("index= "+i);
-			System.out.println("FIRST NAME "+storage.getBook().get(i).getFirstName());
-			System.out.println("LAST NAME "+storage.getBook().get(i).getLastName());
-			System.out.println("ADDRESS "+storage.getBook().get(i).getAddress());
-			System.out.println("CITY "+storage.getBook().get(i).getCity());
-			System.out.println("STATE "+storage.getBook().get(i).getState());
-			System.out.println("ZIP CODE "+storage.getBook().get(i).getZip());
-			System.out.println("PHONE NUMBER "+storage.getBook().get(i).getPhoneNumber());
-			System.out.println();
-			System.out.println();
-		}
-		
-	}
-*/
 	
-	/**
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 * @throws ParseException
-	 */
+
 	public void printEntries()
 	{
 		JSONParser parser=new JSONParser();
@@ -136,32 +152,10 @@ public class AddressBook
 			System.out.print("index="+i);
 			System.out.println(object1);
 		}
-		
-		
-		
-		/*ArrayList<Person> tempArray=new ArrayList();
-		ObjectMapper mapper=new ObjectMapper();
-		try 
-		{
-			tempArray=mapper.readValue(new File(filePath), new TypeReference<ArrayList<Person>>() {});
-			for(int i=0;i<tempArray.size();i++)
-			{
-				System.out.print("index= "+i);
-				System.out.println(tempArray.get(i));
-			}
-		} 
-		catch (IOException e) 
-		{
-			//System.out.println("Address book is empty... first add some persons data");
-			e.printStackTrace();
-		}*/
 	}
-	/**
-	 * @throws JsonGenerationException
-	 * @throws JsonMappingException
-	 * @throws IOException
-	 * @throws ParseException
-	 */
+	
+	
+	
 	public void quitProgram()
 	{
 		System.out.println("DO YOU REALLY WANT TO QUIT THE PROGRAM ?");
@@ -175,13 +169,7 @@ public class AddressBook
 		addressBookManager.showOptions();
 	}
 
-	/**
-	 * @param index
-	 * @throws JsonGenerationException
-	 * @throws JsonMappingException
-	 * @throws IOException
-	 * @throws ParseException 
-	 */
+	
 	public void editPerson(int index)
 	{
 		System.out.println("Enter what you want to change");
@@ -239,13 +227,8 @@ public class AddressBook
 		}
 	}
 
-	/**
-	 * @param removeIndex
-	 * @throws JsonGenerationException
-	 * @throws JsonMappingException
-	 * @throws IOException
-	 * @throws ParseException 
-	 */
+	
+	
 	public void removePerson(int removeIndex)
 	{
 		persons.remove(persons.get(removeIndex));
@@ -256,27 +239,7 @@ public class AddressBook
 
 	public void sortByLastName()
 	{
-		/*String[] names=new String[storage.getBook().size()];
-		for(int i=0;i<names.length;i++)
-		{
-			names[i]=storage.getBook().get(i).getLastName();
-		}
-		Arrays.sort(names);
-		for(int i=0;i<names.length;i++)
-		{
-			for(int j=0;j<names.length;j++)
-			{
-				if(names[i].equals(storage.getBook().get(j).getLastName()))
-				{
-					Person temp=storage.getBook().get(i);
-					storage.getBook().set(i, storage.getBook().get(j));
-					storage.getBook().set(j, temp);
-					break;
-				}
-			}
-		}
-		Utility.convertJavaToJson(storage, filePath);
-		addressBookManager.showOptions();*/
+		
 		for(int i=0;i<persons.size()-1;i++)
 		{
 			for(int j=i+1;j<persons.size();j++)
@@ -309,33 +272,9 @@ public class AddressBook
 		}
 	}
 
-	/**
-	 * @throws JsonGenerationException
-	 * @throws JsonMappingException
-	 * @throws IOException
-	 * @throws ParseException 
-	 */
+
 	public void sortByZipCode()
-	{/*
-		String[] zipCodes=new String[storage.getBook().size()];
-		for(int i=0;i<zipCodes.length;i++)
-		{
-			zipCodes[i]=storage.getBook().get(i).getZip();
-		}
-		Arrays.sort(zipCodes);
-		for(int i=0;i<zipCodes.length;i++)
-		{
-			for(int j=0;j<zipCodes.length;j++)
-			{
-				if(zipCodes[i].equals(storage.getBook().get(j).getZip()))
-				{
-					Person temp=storage.getBook().get(i);
-					storage.getBook().set(i, storage.getBook().get(j));
-					storage.getBook().set(j, temp);
-					break;
-				}
-			}
-		}*/
+	{
 		for(int i=0;i<persons.size()-1;i++)
 		{
 			for(int j=i+1;j<persons.size();j++)
@@ -404,5 +343,4 @@ public class AddressBook
 		
 	}
 
-	
 }
