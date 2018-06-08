@@ -13,7 +13,7 @@ public class DeckOfCards
 
 	public static void main(String[] args) 
 	{ 
-		String[] suit={"Clubs","Diamons","Hearts","Spades"}; 
+		String[] suit={"Clubs","Diamonds","Hearts","Spades"}; 
 		String[] rank={"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
 		MyLinkedList<String> cards=new MyLinkedList<>();
 		String[][] players=new String[4][9]; 
@@ -26,12 +26,7 @@ public class DeckOfCards
 		} 
 		cards.display(); 
 		System.out.println();
-	    System.out.println(cards.size()); 
-	    cards=shuffle(cards); 
-	    System.out.println();
-	    cards.display(); 
 	    System.out.println(); 
-	    System.out.println(cards.size());
 	    Utility.print2DArrayElement(distribute(players,cards));
 	  
 	  }
@@ -40,7 +35,8 @@ public class DeckOfCards
 	  
 	  private static String[][] distribute(String[][] players, MyLinkedList<String> cards) 
 	  { 
-		  Random rand=new Random(); int numOfCardsPresent=52; 
+		  Random rand=new Random();
+		  int numOfCardsPresent=52; 
 		  for(int i=0;i<9;i++) 
 		  { 
 			  players[0][i]=cards.pop(rand.nextInt(numOfCardsPresent--));
@@ -54,7 +50,7 @@ public class DeckOfCards
 	  
 	  
 	  
-	  private static MyLinkedList shuffle(MyLinkedList<String> cards) 
+	 /* private static MyLinkedList shuffle(MyLinkedList<String> cards) 
 	  { 
 		  Random rand=new Random(); 
 		  int index; 
@@ -66,7 +62,7 @@ public class DeckOfCards
 			  cards.insert(i, temp); 
 		  } 
 		  return cards; 
-	  }
+	  }*/
 	 
 
 	/*public static void main(String[] args) {

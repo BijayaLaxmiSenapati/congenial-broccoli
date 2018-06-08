@@ -18,12 +18,12 @@ public class AddressBook1
 {
 	private ArrayList<Person> persons=new ArrayList<>();                                                                            
 	
-	public ArrayList<Person> getBook() {
+	public ArrayList<Person> getPersons() {
 		return persons;
 	}
 
-	public void setBook(ArrayList<Person> book) {
-		this.persons = book;
+	public void setPersons(ArrayList<Person> persons) {
+		this.persons = persons;
 	}
 	
 

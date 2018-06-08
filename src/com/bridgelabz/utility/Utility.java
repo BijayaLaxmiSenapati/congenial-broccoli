@@ -23,6 +23,8 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
 import org.codehaus.jackson.type.TypeReference;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
 
 import com.bridgelabz.datastructureprograms.MyDeque;
 import com.bridgelabz.datastructureprograms.MyLinkedList;
@@ -1417,7 +1419,7 @@ public class Utility {
     	System.out.println("JSON written to the file");
     }
     
-    //only to convert the files
+   /* //only to convert the files
     public static ArrayList<String> convertJsonToList(String filePath)
     {
     	ArrayList<String> files = new ArrayList<>();
@@ -1429,9 +1431,29 @@ public class Utility {
 		catch (IOException e) 
 		{
 			System.out.println("Address book is empty... first add some persons data");
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 		return files;
+    }*/
+    public static ArrayList<String> convertJsonToList(String filePath)
+    {
+    	JSONParser parser=new JSONParser();
+    	ArrayList<String> addressBookList=new ArrayList<>();
+    	try
+    	{
+    		Object obj=parser.parse(new FileReader(filePath));
+    		JSONArray addressbookJsonList=(JSONArray)obj;
+    		for(Object object : addressbookJsonList)
+    		{
+    			String addressBookName=object.toString();
+    			addressBookList.add(addressBookName);
+    		}
+    	}catch(Exception e){
+    		System.out.println("Error in loading Address Books");
+    	}
+    	return addressBookList;
     }
 
+    
+    	
 }

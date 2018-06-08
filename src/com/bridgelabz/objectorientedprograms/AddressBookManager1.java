@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -21,22 +22,32 @@ import com.bridgelabz.utility.Utility;
 
 public class AddressBookManager1 
 {
-	List<String> listOfAddressBook;
-	
-	public AddressBookManager1(String fileLocation) 
+	String fileLocation="/home/adminstrato/BijayaWorkSpace/Basic/src/com/bridgelabz/objectorientedprograms/";
+	ArrayList<String> listOfAddressBook=null;
+	AddressBook1 addressBook1;
+	String select;
+	/**
+	 * @param fileStorage
+	 */
+	public AddressBookManager1(String fileStorage) 
 	{
 		if(listOfAddressBook == null) {
 			
-				listOfAddressBook = Utility.convertJsonToList(fileLocation);
+				listOfAddressBook = Utility.convertJsonToList(fileStorage);
+				System.out.println();
 			
 		}
 		else {
-			System.out.println("No Address Book created");
+			System.out.println("No Address Book is present");
 			listOfAddressBook = new ArrayList<>();
+			System.out.println("lists are:"+listOfAddressBook);
 		}
 	}
 	
-	static void showOptions()
+	/**
+	 * 
+	 */
+	void showOptions()
 	{
 		System.out.println("What do you want?");
 		System.out.println("1. Add a person");
@@ -45,56 +56,77 @@ public class AddressBookManager1
 		System.out.println("4. Sort entries by name");
 		System.out.println("5. sort entries by zip");
 		System.out.println("6. print entries");
-		System.out.println("7. create a new address book");
-		//System.out.println("8. Open existing address book");
-		System.out.println("8. Quit program");
+		//System.out.println("7. create a new address book");
+		System.out.println("7. Quit program");
+		System.out.println("8. close the current \"ADDRESS BOOK\"");
 		System.out.println("select one option");
 		int option=Utility.retInt();
 		doSelectedOption(option);
 	}
 
 	
-	private static void doSelectedOption(int option)
+	/**
+	 * @param option
+	 */
+	void doSelectedOption(int option)
 	{
-		AddressBook obj=new AddressBook();
+		//AddressBook obj=new AddressBook();
 		switch(option)
 		{
 		case 1:
-			obj.addPerson();
+			printEntries();
+			addPerson();
 			break;
 		case 2:
-			obj.printEntries();
+			printEntries();
 			System.out.println("enter index of the person whose details you want to edit");
 			int index=Utility.retInt();
-			obj.editPerson(index);
+			editPerson(index);
 			break;
 		case 3:
-			obj.printEntries();
+			printEntries();
 			System.out.println("enter index of the person whose details you want to delete");
 			int removeIndex=Utility.retInt();
-			obj.removePerson(removeIndex);
+			removePerson(removeIndex);
 			break;
 		case 4:
-			obj.sortByLastName();
+			sortByLastName();
 			break;
 		case 5:
-			obj.sortByZipCode();
+			sortByZipCode();
 			break;
 		case 6:
-			obj.printEntries();
+			printEntries();
 			break;
+		/*case 7:
+			createNewAddressBook();
+			break;*/
 		case 7:
-			obj.createNewAddressBook();
+			quitProgram();
 			break;
 		case 8:
-			obj.quitProgram();
-			break;
+			closeCurrentAddressBook();
 		default:
 			
 		}
 		
 	}
 	
+	/**
+	 * 
+	 */
+	void closeCurrentAddressBook() 
+	{
+		AddressBookManager1 addressBookManager2ndObj=new AddressBookManager1("/home/adminstrato/BijayaWorkSpace/Basic/src/com"
+																			+ "/bridgelabz/objectorientedprograms/LISTOFADDRESSBOOK");
+		UserInterface.showInitialOptions(addressBookManager2ndObj);
+	}
+
+	
+	
+	/**
+	 * 
+	 */
 	public void addPerson()
 	{
 		String firstName="";
@@ -120,20 +152,23 @@ public class AddressBookManager1
 		System.out.println("Enter the \"Phone Number\"");
 		phoneNumber=Utility.retNext();
 		Person person=new Person(firstName, lastName, address, city, state, zip, phoneNumber);
-		persons.add(person);
-		Utility.convertJavaToJson(persons, filePath);
-		addressBookManager.showOptions();
+		addressBook1.getPersons().add(person);
+		Utility.convertJavaToJson(addressBook1.getPersons(), select);
+		showOptions();
 	}
 
 	
 
+	/**
+	 * 
+	 */
 	public void printEntries()
 	{
 		JSONParser parser=new JSONParser();
 		Object object = null;
 		try 
 		{
-			object = parser.parse(new FileReader(filePath));
+			object = parser.parse(new FileReader(select));
 		}
 		catch (ParseException e) 
 		{
@@ -144,7 +179,6 @@ public class AddressBookManager1
 			
 			e.printStackTrace();
 		}
-		//JSONObject jsonObject=(JSONObject)object;
 		JSONArray jsonArray=(JSONArray)object;
 		for(int i=0;i<jsonArray.size();i++)
 		{
@@ -156,6 +190,9 @@ public class AddressBookManager1
 	
 	
 	
+	/**
+	 * 
+	 */
 	public void quitProgram()
 	{
 		System.out.println("DO YOU REALLY WANT TO QUIT THE PROGRAM ?");
@@ -163,13 +200,16 @@ public class AddressBookManager1
 		int exitSurance=Utility.retInt();
 		if(exitSurance==0)
 		{
-			System.out.println("Thanks! Visit again");
+			System.out.println("Address Book Application closed");
 			System.exit(0);
 		}
-		addressBookManager.showOptions();
+		showOptions();
 	}
 
 	
+	/**
+	 * @param index
+	 */
 	public void editPerson(int index)
 	{
 		System.out.println("Enter what you want to change");
@@ -184,118 +224,136 @@ public class AddressBookManager1
 		case 1:
 			System.out.println("Enter the new address");
 			String newAddress=Utility.retNext();
-			persons.get(index).setAddress(newAddress);
-			Utility.convertJavaToJson(persons, filePath);
+			addressBook1.getPersons().get(index).setAddress(newAddress);
+			Utility.convertJavaToJson(addressBook1.getPersons(), select);
 			printEntries();
-			addressBookManager.showOptions();
+			showOptions();
 			break;
 		case 2:
 			System.out.println("Enter the new city name");
 			String newCity=Utility.retNext();
-			persons.get(index).setAddress(newCity);
-			Utility.convertJavaToJson(persons, filePath);
+			addressBook1.getPersons().get(index).setCity(newCity);
+			Utility.convertJavaToJson(addressBook1.getPersons(), select);
 			printEntries();
-			addressBookManager.showOptions();
+			showOptions();
 			break;
 		case 3:
 			System.out.println("Enter the new state name");
 			String newState=Utility.retNext();
-			persons.get(index).setAddress(newState);
-			Utility.convertJavaToJson(persons, filePath);
+			addressBook1.getPersons().get(index).setState(newState);
+			Utility.convertJavaToJson(addressBook1.getPersons(), select);
 			printEntries();
-			addressBookManager.showOptions();
+			showOptions();
 			break;
 		case 4:
 			System.out.println("Enter the new zip code");
 			String newZipCode=Utility.retNext();
-			persons.get(index).setAddress(newZipCode);
-			Utility.convertJavaToJson(persons, filePath);
+			addressBook1.getPersons().get(index).setZip(newZipCode);
+			Utility.convertJavaToJson(addressBook1.getPersons(), select);
 			printEntries();
-			addressBookManager.showOptions();
+			showOptions();
 			break;
 		case 5:
 			System.out.println("Enter the new Phone number");
 			String newPhoneNum=Utility.retNext();
-			persons.get(index).setAddress(newPhoneNum);
-			Utility.convertJavaToJson(persons, filePath);
+			addressBook1.getPersons().get(index).setPhoneNumber(newPhoneNum);
+			Utility.convertJavaToJson(addressBook1.getPersons(), select);
 			printEntries();
-			addressBookManager.showOptions();
+			showOptions();
 			break;
 		default:
 			System.out.println("wrong option selected");
-			addressBookManager.showOptions();
+			showOptions();
 		}
 	}
 
 	
 	
+	/**
+	 * @param removeIndex
+	 */
 	public void removePerson(int removeIndex)
 	{
-		persons.remove(persons.get(removeIndex));
-		Utility.convertJavaToJson(persons, filePath);
+		addressBook1.getPersons().remove(addressBook1.getPersons().get(removeIndex));
+		Utility.convertJavaToJson(addressBook1.getPersons(), select);
 		printEntries();
-		addressBookManager.showOptions();
+		showOptions();
 	}
 
+	/**
+	 * 
+	 */
 	public void sortByLastName()
 	{
 		
-		for(int i=0;i<persons.size()-1;i++)
+		for(int i=0;i<addressBook1.getPersons().size()-1;i++)
 		{
-			for(int j=i+1;j<persons.size();j++)
+			for(int j=i+1;j<addressBook1.getPersons().size();j++)
 			{
-				if(persons.get(i).getLastName().compareTo(persons.get(j).getLastName())>0)
+				if(addressBook1.getPersons().get(i).getLastName().compareTo(addressBook1.getPersons().get(j).getLastName())>0)
 				{
-					Person temporary=persons.get(i);
-					persons.set(i,persons.get(j));
-					persons.set(j, temporary);
+					Person temporary=addressBook1.getPersons().get(i);
+					addressBook1.getPersons().set(i,addressBook1.getPersons().get(j));
+					addressBook1.getPersons().set(j, temporary);
 				}
-				else if(persons.get(i).getLastName().compareTo(persons.get(j).getLastName())==0)
+				else if(addressBook1.getPersons().get(i).getLastName().compareTo(addressBook1.getPersons().get(j).getLastName())==0)
 				{
-					sortByFirstName(persons.get(i), i, persons.get(j), j);
+					sortByFirstName(addressBook1.getPersons().get(i), i, addressBook1.getPersons().get(j), j);
 				}
 			}
 		}
-		Utility.convertJavaToJson(persons, filePath);
+		Utility.convertJavaToJson(addressBook1.getPersons(), select);
 		printEntries();
-		addressBookManager.showOptions();
+		showOptions();
 	}
 	
 	
+	/**
+	 * @param person1
+	 * @param i
+	 * @param person2
+	 * @param j
+	 */
 	public void sortByFirstName(Person person1 , int i , Person person2, int j)
 	{
 		if(person1.getFirstName().compareTo(person2.getFirstName())>0)
 		{
-			Person temp=persons.get(i);
-			persons.set(i, persons.get(j));
-			persons.set(j, temp);
+			Person temp=addressBook1.getPersons().get(i);
+			addressBook1.getPersons().set(i, addressBook1.getPersons().get(j));
+			addressBook1.getPersons().set(j, temp);
 		}
 	}
 
 
+	/**
+	 * 
+	 */
 	public void sortByZipCode()
 	{
-		for(int i=0;i<persons.size()-1;i++)
+		for(int i=0;i<addressBook1.getPersons().size()-1;i++)
 		{
-			for(int j=i+1;j<persons.size();j++)
+			for(int j=i+1;j<addressBook1.getPersons().size();j++)
 			{
-				if(persons.get(i).getZip().compareTo(persons.get(j).getZip())>0)
+				if(addressBook1.getPersons().get(i).getZip().compareTo(addressBook1.getPersons().get(j).getZip())>0)
 				{
-					Person temporary=persons.get(i);
-					persons.set(i,persons.get(j));
-					persons.set(j, temporary);
+					Person temporary=addressBook1.getPersons().get(i);
+					addressBook1.getPersons().set(i,addressBook1.getPersons().get(j));
+					addressBook1.getPersons().set(j, temporary);
 				}
-				else if(persons.get(i).getZip().compareTo(persons.get(j).getZip())==0)
+				else if(addressBook1.getPersons().get(i).getZip().compareTo(addressBook1.getPersons().get(j).getZip())==0)
 				{
-					sortByFirstName(persons.get(i), i, persons.get(j), j);
+					sortByFirstName(addressBook1.getPersons().get(i), i, addressBook1.getPersons().get(j), j);
 				}
 			}
 		}
-		Utility.convertJavaToJson(persons, filePath);
+		Utility.convertJavaToJson(addressBook1.getPersons(), select);
 		printEntries();
-		AddressBookManager.showOptions();
+		showOptions();
 	}
 
+	/**
+	 * 
+	 */
 	public void createNewAddressBook() 
 	{
 		System.out.println("enter the name of the address book which you want to create");
@@ -306,11 +364,12 @@ public class AddressBookManager1
 			if(fl.createNewFile())
 			{
 				System.out.println("New Address Book is Created");
-				addressBookList.add(name);
+				listOfAddressBook.add(name);
+				Utility.convertJavaToJson(listOfAddressBook, UserInterface.fileStorage);
 			}
 			else
 			{
-				System.out.println("address book not created");
+				System.err.println("address book already exists. Enter a new name");
 			}
 		} 
 		catch (IOException e) 
@@ -318,29 +377,50 @@ public class AddressBookManager1
 
 			e.printStackTrace();
 		}
+		closeCurrentAddressBook();
 	}
 
+	/**
+	 * 
+	 */
 	public void viewAllAddressBook() 
 	{
-		for(int i=0;i<addressBookList.size();i++)
+		
+		listOfAddressBook=Utility.convertJsonToList(UserInterface.fileStorage);
+		for(int i=0;i<listOfAddressBook.size();i++)
 		{
-			System.out.print("index="+i);
-			System.out.println(addressBookList.get(i));
+			System.out.print("index="+i+"\t");
+			System.out.println(listOfAddressBook.get(i));
 		}
 		
 	}
 
+	/**
+	 * @param indexOfFileList
+	 */
 	public void openAddressBook(int indexOfFileList) 
 	{
-		String select=addressBookList.get(indexOfFileList);
+		select=listOfAddressBook.get(indexOfFileList);
 		//Utility.convertJsonToList(select,)
-		
+		addressBook1=new AddressBook1(select);
+		showOptions();
 	}
 
-	public void deleteAddressBook() 
+	public void deleteAddressBook(int indexOfFileList) 
 	{
-		
-		
+		String fileNameToDlt=listOfAddressBook.get(indexOfFileList);
+		listOfAddressBook.remove(indexOfFileList);
+		Utility.convertJavaToJson(listOfAddressBook,UserInterface.fileStorage);
+		File file=new File(fileNameToDlt);
+		if(file.delete())
+		{
+			System.out.println("File Deleted Successfully");
+		}
+		else
+		{
+			System.out.println("Failed To delete the file");
+		}
+		closeCurrentAddressBook();
 	}
 
 }
