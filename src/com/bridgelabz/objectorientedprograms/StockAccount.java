@@ -30,7 +30,7 @@ public class StockAccount {
 	private static void customerDetails() 
 	{
 		System.out.println("Enter your name:");
-		"/home/adminstrato/BijayaWorkSpace/Basic/src/com/bridgelabz/"
+		//"/home/adminstrato/BijayaWorkSpace/Basic/src/com/bridgelabz/"
 		
 	}
 

@@ -1,5 +1,8 @@
 /**
- * 
+ * Purpose:
+ * @author: Bijaya Laxmi Senapati
+ * @version:1.0
+ * @since:07/06/2018
  */
 package com.bridgelabz.objectorientedprograms;
 
@@ -10,10 +13,6 @@ import java.util.ArrayList;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
-/**
- * @author adminstrato
- *
- */
 public class AddressBook1
 {
 	private ArrayList<Person> persons=new ArrayList<>();                                                                            

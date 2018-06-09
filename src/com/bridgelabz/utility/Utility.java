@@ -1419,22 +1419,28 @@ public class Utility {
     	System.out.println("JSON written to the file");
     }
     
-   /* //only to convert the files
-    public static ArrayList<String> convertJsonToList(String filePath)
+    //only to convert the files
+    public static <T> ArrayList<T> convertJsonToListUsingJackson(String filePath, ArrayList list)
     {
-    	ArrayList<String> files = new ArrayList<>();
+    	//ArrayList<T> files = new ArrayList<>();
     	ObjectMapper mapper=new ObjectMapper();
 		try 
 		{
-			files=mapper.readValue(new File(filePath), new TypeReference<ArrayList<Person>>() {});
+			list=mapper.readValue(new File(filePath), new TypeReference<ArrayList<T>>() {});
 		} 
 		catch (IOException e) 
 		{
 			System.out.println("Address book is empty... first add some persons data");
 			e.printStackTrace();
 		}
-		return files;
-    }*/
+		return list;
+    }
+    
+    
+    /**
+     * @param filePath
+     * @return
+     */
     public static ArrayList<String> convertJsonToList(String filePath)
     {
     	JSONParser parser=new JSONParser();
