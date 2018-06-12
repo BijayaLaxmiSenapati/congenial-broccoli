@@ -1,0 +1,79 @@
+[ {
+  "doctorName" : "tanmay",
+  "specialization" : "sergery",
+  "availability" : "BOTH",
+  "countOfPatients" : 3,
+  "doctorId" : 47
+}, {
+  "doctorName" : "suprava",
+  "specialization" : "sergery",
+  "availability" : "BOTH",
+  "countOfPatients" : 0,
+  "doctorId" : 50
+}, {
+  "doctorName" : "debasish",
+  "specialization" : "sergery",
+  "availability" : "AM",
+  "countOfPatients" : 0,
+  "doctorId" : 93
+}, {
+  "doctorName" : "indira",
+  "specialization" : "sergery",
+  "availability" : "PM",
+  "countOfPatients" : 1,
+  "doctorId" : 73
+}, {
+  "doctorName" : "bijaya",
+  "specialization" : "brain",
+  "availability" : "PM",
+  "countOfPatients" : 1,
+  "doctorId" : 34
+}, {
+  "doctorName" : "nagarjun",
+  "specialization" : "brain",
+  "availability" : "BOTH",
+  "countOfPatients" : 1,
+  "doctorId" : 26
+}, {
+  "doctorName" : "girija",
+  "specialization" : "brain",
+  "availability" : "AM",
+  "countOfPatients" : 1,
+  "doctorId" : 16
+}, {
+  "doctorName" : "saurabh",
+  "specialization" : "brain",
+  "availability" : "PM",
+  "countOfPatients" : 0,
+  "doctorId" : 95
+}, {
+  "doctorName" : "simran",
+  "specialization" : "heart",
+  "availability" : "AM",
+  "countOfPatients" : 0,
+  "doctorId" : 82
+}, {
+  "doctorName" : "sarita",
+  "specialization" : "heart",
+  "availability" : "AM",
+  "countOfPatients" : 0,
+  "doctorId" : 11
+}, {
+  "doctorName" : "sonali",
+  "specialization" : "heart",
+  "availability" : "PM",
+  "countOfPatients" : 0,
+  "doctorId" : 55
+}, {
+  "doctorName" : "aruna",
+  "specialization" : "orthopedic",
+  "availability" : "PM",
+  "countOfPatients" : 0,
+  "doctorId" : 38
+}, {
+  "doctorName" : "sameer",
+  "specialization" : "orthopedic",
+  "availability" : "PM",
+  "countOfPatients" : 2,
+  "doctorId" : 43
+} ]

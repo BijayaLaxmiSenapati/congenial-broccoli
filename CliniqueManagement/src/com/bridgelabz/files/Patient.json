@@ -1,0 +1,31 @@
+[ {
+  "patientName" : "bijaya",
+  "patientId" : 74,
+  "patientMobileNumber" : 7377145005,
+  "patientAge" : 23
+}, {
+  "patientName" : "yuga",
+  "patientId" : 2,
+  "patientMobileNumber" : 9423956577,
+  "patientAge" : 24
+}, {
+  "patientName" : "shweta",
+  "patientId" : 90,
+  "patientMobileNumber" : 9110697579,
+  "patientAge" : 21
+}, {
+  "patientName" : "soumitri",
+  "patientId" : 28,
+  "patientMobileNumber" : 1234567891,
+  "patientAge" : 53
+}, {
+  "patientName" : "jayant",
+  "patientId" : 79,
+  "patientMobileNumber" : 2345678910,
+  "patientAge" : 27
+}, {
+  "patientName" : "sonam",
+  "patientId" : 162,
+  "patientMobileNumber" : 4567891011,
+  "patientAge" : 34
+} ]

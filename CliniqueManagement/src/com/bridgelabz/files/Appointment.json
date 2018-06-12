@@ -1,0 +1,46 @@
+[ {
+  "patientName" : "bijaya",
+  "patientId" : 74,
+  "doctorName" : "tanmay",
+  "doctorId" : 47
+}, {
+  "patientName" : "bijaya",
+  "patientId" : 74,
+  "doctorName" : "indira",
+  "doctorId" : 73
+}, {
+  "patientName" : "yuga",
+  "patientId" : 2,
+  "doctorName" : "nagarjun",
+  "doctorId" : 26
+}, {
+  "patientName" : "shweta",
+  "patientId" : 90,
+  "doctorName" : "sameer",
+  "doctorId" : 43
+}, {
+  "patientName" : "shweta",
+  "patientId" : 90,
+  "doctorName" : "girija",
+  "doctorId" : 16
+}, {
+  "patientName" : "soumitri",
+  "patientId" : 28,
+  "doctorName" : "sameer",
+  "doctorId" : 43
+}, {
+  "patientName" : "jayant",
+  "patientId" : 79,
+  "doctorName" : "bijaya",
+  "doctorId" : 34
+}, {
+  "patientName" : "shweta",
+  "patientId" : 90,
+  "doctorName" : "tanmay",
+  "doctorId" : 47
+}, {
+  "patientName" : "sonam",
+  "patientId" : 162,
+  "doctorName" : "tanmay",
+  "doctorId" : 47
+} ]
